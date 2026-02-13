@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Security Practices — Ethan Houseworth</title>
+  <link rel="stylesheet" href="../style.css?v=10">
+</head>
+<body>
+  <header id="main-header">
+    <div class="header-inner">
+      <h1><a href="../"><span>ethan</span>houseworth</a></h1>
+      <nav>
+        <a href="https://github.com/houseworthe" target="_blank">GitHub</a><a href="https://linkedin.com/in/ethanhouseworth" target="_blank">LinkedIn</a>
+      </nav>
+    </div>
+  </header>
+
+    <section class="article-hero">
+    <a href="../" class="back">← back to projects</a>
+  </section>
+
+  <article class="article">
+      <h2>Security Practices</h2>
+      <p class="subtitle">locking down an AI agent that has access to your life</p>
+
+      <p>my AI agent can read my email, push to my GitHub, control my lights, and buy things with my money. so yeah — security matters.</p>
+
+      <p>this isn't a theoretical framework. it's the actual stack running right now on the Mac mini in my apartment. every layer is real, every tool is in use. here's how we lock it down.</p>
+
+      <h3>the network: beryl router (GL-MT3000)</h3>
+
+      <p>i live in an apartment with shared WiFi. dozens of devices on the same network, none of them mine. running an AI agent on that felt like leaving my front door open.</p>
+
+      <p>so i got a GL-MT3000 travel router and set it up in repeater mode. it connects to the building WiFi as a client, then creates its own private network on top. every device i own — the Mac mini, my phone, the rover — sits behind its own firewall instead of raw on building WiFi.</p>
+
+      <p>AdGuard Home runs on the router for network-wide ad and tracker blocking. DNS queries go through Quad9, which blocks known malware domains at the DNS level before anything even reaches the machine. DNS over TLS encrypts those queries so the building network can't snoop on what i'm resolving.</p>
+
+      <p>total cost: about $70. best infrastructure purchase i've made.</p>
+
+      <h3>macOS hardening</h3>
+
+      <p>the Mac mini is the brain. if someone gets into it, they get everything. so the defaults stay on and the extras get turned up:</p>
+
+      <p><strong>FileVault</strong> — full disk encryption. if someone physically steals the machine, the drive is unreadable without the password. this is just ON, no reason it shouldn't be.</p>
+
+      <p><strong>macOS Firewall + Stealth Mode</strong> — the firewall is obvious. stealth mode means the machine doesn't respond to pings or port probes. it's invisible on the network. someone scanning the building WiFi won't even know it exists.</p>
+
+      <p><strong>System Integrity Protection (SIP)</strong> — prevents even root from modifying protected system files. some people disable this for development. don't.</p>
+
+      <p><strong>Gatekeeper</strong> — only runs signed, verified software. another one that's easy to leave on and dumb to turn off.</p>
+
+      <p>none of this is exotic. it's all built into macOS. you just have to not disable it.</p>
+
+      <h3>telegram security</h3>
+
+      <p>here's the thing people don't think about: Telegram is my primary interface to the agent. when i text Ultron, i'm talking to a system that has access to my email, my files, my accounts, my money. Telegram is the front door.</p>
+
+      <p>Face ID lock on the app. biometric required every time i open it. if someone picks up my phone, they can't get to the agent. simple, but it's the single most important lock in the whole stack because it guards the interface to everything else.</p>
+
+      <h3>credential management</h3>
+
+      <p>no passwords in plaintext files. ever. every credential the agent uses — Garmin, Beatport, Bandcamp, router admin passwords — lives in macOS Keychain. the agent accesses them programmatically, they never sit in a config file or environment variable.</p>
+
+      <p>for purchases, the agent uses Apple Card virtual numbers. every transaction gets a unique card number with a rotating CVV. it's basically 2FA for every purchase — even if a number leaks, it's useless for the next transaction. the agent buys DJ tracks on Beatport and Bandcamp this way. no stored card numbers, no reusable credentials.</p>
+
+      <h3>agent security rules</h3>
+
+      <p>the agent itself has rules baked in:</p>
+
+      <p><strong>financial data stays private.</strong> the agent will not share financial information with anyone except me. not in group chats, not in shared contexts, not if someone asks nicely.</p>
+
+      <p><strong>credentials never leave the machine.</strong> they're accessed locally and used locally. nothing gets sent anywhere.</p>
+
+      <p><strong>identity verification.</strong> if someone other than me tries to get sensitive info out of the agent, it refuses. we tested this. it passed. it won't even acknowledge what it has access to.</p>
+
+      <p><strong>no external plugins.</strong> everything is built in-house. no third-party skills, no ClawHub marketplace installs. if we didn't write it, it doesn't run. the ClawHub CLI got uninstalled entirely.</p>
+
+      <p><strong>private memory tags.</strong> credentials, payment info, and financial data are marked PRIVATE in the agent's memory system. even in contexts where memory gets loaded, these fields are flagged and handled differently.</p>
+
+      <h3>access control philosophy</h3>
+
+      <p>the agent didn't start with access to everything. it started with lights and weather. that's it.</p>
+
+      <p>we added integrations one at a time. lights first. then smart home stuff. then GitHub. then email. then purchasing. each one earned. each one tested before the next.</p>
+
+      <p>low-risk stuff first, sensitive stuff later. by the time the agent got access to email and money, we'd already been working together for weeks. i understood how it handled edge cases. it understood my preferences and boundaries.</p>
+
+      <p>and every external action — sending an email, posting a tweet, making a purchase — requires either my explicit approval or clear standing instructions i've set in advance. the agent doesn't freelance with my identity.</p>
+
+      <h3>the philosophy</h3>
+
+      <p>none of this is paranoid. it's just... basic hygiene. the same way you lock your front door even though you live in a nice neighborhood.</p>
+
+      <p>the agent has real power. it can spend money, send messages as me, access private accounts. the security stack exists so i can give it that power without losing sleep. trust but verify. layer the defenses. make the defaults safe.</p>
+
+      <p>if you're building something similar, start here. private network, encrypted disk, locked interface, no plaintext credentials, incremental access. it's not complicated. it just has to be intentional.</p>
+    </article>
+
+  <footer>
+    <div class="header-inner">
+      Built by <a href="this-website.html">Ultron</a> · <a href="../">Home</a>
+    </div>
+  </footer>
+</html>
