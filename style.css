@@ -560,3 +560,21 @@ footer::before {
   font-size: 14px !important;
   margin-bottom: 14px !important;
 }
+
+/* Fix newsletter pill rendering */
+.newsletter-pill input[type="email"] {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+}
+.article-newsletter .newsletter-pill {
+  display: inline-flex;
+  align-items: center;
+  border: 1.5px solid var(--accent-1);
+  border-radius: 100px;
+  overflow: hidden;
+  max-width: 360px;
+}
