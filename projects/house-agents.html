@@ -52,11 +52,15 @@
 
       <p>featured in "800+ hours of Learning Claude Code in 8 minutes" by Edmond Yong on YouTube. open source on GitHub.</p>
 
+      <h3>then Anthropic shipped the same thing</h3>
+
+      <p>house agents went live on October 14, 2025. thirteen days later, Anthropic released Claude Code v2.0.28 with sub-agent resumption and dynamic model selection, the exact same pattern baked into the official product. not claiming credit, just noting the timing. the problem was obvious enough that we both arrived at the same solution independently.</p>
+
       <h3>what's next</h3>
 
       <p>house-vision for image analysis. house-data for database operations. the pattern scales to any domain where the input is noisy and the output should be clean. which is basically everything.</p>
 
-      <button class="copy-arch" data-arch="Build a system of specialized sub-agents that quarantine heavy, token-intensive operations from a main AI conversation. Each sub-agent runs in its own isolated context window, handles one category of work (e.g. file search, shell commands, version control, tool configuration), and returns only a condensed summary to the main agent. Sub-agents run on a cheaper/faster model since their tasks are focused. The main agent never sees raw output, only distilled results. This preserves context quality and reduces token usage by 95-99%.">copy architecture</button>
+      <div class="copy-arch-wrap"><button class="copy-arch" data-arch="Build a system of specialized sub-agents that quarantine heavy, token-intensive operations from a main AI conversation. Each sub-agent runs in its own isolated context window, handles one category of work (e.g. file search, shell commands, version control, tool configuration), and returns only a condensed summary to the main agent. Sub-agents run on a cheaper/faster model since their tasks are focused. The main agent never sees raw output, only distilled results. This preserves context quality and reduces token usage by 95-99%."><svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>copy architecture</button></div>
     </article>
 
   <script src="../copy-arch.js"></script>

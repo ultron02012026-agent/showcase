@@ -60,7 +60,7 @@
 
       <p>inference speed is the bottleneck. as AI gets faster, you need fewer parallel agents. at 1-second latency, a single agent could play competitively. Claude Royale is a benchmark for something bigger: how fast can AI react to the real world?</p>
 
-      <button class="copy-arch" data-arch="Build a multi-agent system that plays a real-time game via screen capture and touch/click input. A commander agent handles menus and match lifecycle. When a match starts, it spawns N player agents in parallel, each running the loop: screenshot → vision model → decision → input action. Parallel agents stagger naturally so the effective response rate is total_latency / N. Add an auto-opener that plays the first moves on a timer to establish tempo before vision kicks in. Validate outcomes by checking actual score deltas, not on-screen text which can be misleading.">copy architecture</button>
+      <div class="copy-arch-wrap"><button class="copy-arch" data-arch="Build a multi-agent system that plays a real-time game via screen capture and touch/click input. A commander agent handles menus and match lifecycle. When a match starts, it spawns N player agents in parallel, each running the loop: screenshot → vision model → decision → input action. Parallel agents stagger naturally so the effective response rate is total_latency / N. Add an auto-opener that plays the first moves on a timer to establish tempo before vision kicks in. Validate outcomes by checking actual score deltas, not on-screen text which can be misleading."><svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>copy architecture</button></div>
     </article>
 
   <script src="../copy-arch.js"></script>

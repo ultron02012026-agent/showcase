@@ -433,3 +433,36 @@ footer::before {
 }
 
 .signature-question { color: var(--accent-1); font-weight: 700; }
+
+/* ── Copy Architecture Button ── */
+.copy-arch-wrap {
+  text-align: center;
+  margin-top: 56px;
+}
+.copy-arch {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 32px;
+  border: none;
+  border-radius: 100px;
+  background: var(--accent-1);
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.copy-arch:hover {
+  opacity: 0.85;
+}
+.copy-arch svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
