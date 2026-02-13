@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Engineering Manager — Ethan Houseworth</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1><a href="../"><span>ethan</span>houseworth</a></h1>
+      <nav><a href="https://github.com/houseworthe" target="_blank">GitHub</a></nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <article class="article">
+      <a href="../" class="back">← back to projects</a>
+      <h2>AI Engineering Manager</h2>
+      <p class="subtitle">Ship features from the couch via Telegram.</p>
+
+      <p>Ethan texts "add dark mode to the settings page." twenty minutes later there's a PR on staging with tests passing. he never opened a laptop.</p>
+
+      <p>that's the workflow. a feature idea arrives as a Telegram message, and an AI agent handles everything between that message and a reviewable pull request. no IDE, no terminal, no context switching. just a guy on a couch texting his engineering team, except the team is one agent.</p>
+
+      <h3>how it works</h3>
+
+      <p>the agent receives the message and asks clarifying questions. "dark mode everywhere or just settings? should it respect system preference? toggle or dropdown?" two or three messages, enough to remove ambiguity. then it goes to work.</p>
+
+      <p>first, codebase analysis. the agent delegates this to a sub-agent with a throwaway context window. the sub-agent reads the relevant files, maps the architecture, identifies where changes need to happen, and returns a condensed summary. the orchestrator never sees a single line of code. this is critical. the moment you load source files into the manager's context, it starts degrading. code is noisy, verbose, and eats tokens fast. keeping it out of the orchestrator means the orchestrator stays sharp for what it's actually good at: planning and coordination.</p>
+
+      <p>next, the agent creates a detailed GitHub issue. not a vague ticket, a real implementation plan: which files to modify, what the expected behavior is, edge cases to handle, how to test it. the kind of issue a senior engineer would write after spending 30 minutes understanding the codebase.</p>
+
+      <p>then it spawns an isolated Claude Code session to implement the plan. Claude Code writes the code, creates a feature branch, runs the tests, and opens a PR into staging. the agent notifies Ethan on Telegram when the PR is ready for review.</p>
+
+      <h3>ralph loops</h3>
+
+      <p>the implementation step uses a pattern called Ralph Loops. a fresh Claude Code instance gets spun up for each task. completely clean context, no accumulated history, no confusion from previous work. the instance writes code, runs the test suite externally, and if tests pass, commits. if tests fail, it reads the failure, fixes, and tries again. fresh context per task, external verification, commit on green, repeat.</p>
+
+      <p>this solves context rot. when a single AI session works on a codebase for hours, it starts hallucinating about code it saw 40 minutes ago. functions that were refactored, variables that were renamed, imports that moved. the context window becomes a liability. Ralph Loops sidestep this entirely. every iteration starts clean. the tests are the source of truth, not the AI's memory.</p>
+
+      <h3>the key insight</h3>
+
+      <p>the engineering manager agent never reads code in its own context. ever. all code analysis gets delegated to sub-agents with throwaway context windows. the orchestrator handles intent, planning, coordination, and communication. the sub-agents handle the heavy lifting and throw their context away when done.</p>
+
+      <p>this is the same pattern as House Agents but applied to an entire development workflow. the manager is the CEO, the sub-agents are the engineers. the CEO doesn't read source code. the CEO reviews the plan and approves the PR.</p>
+
+      <h3>why it matters</h3>
+
+      <p>a single person can ship real features to real products while sitting on the couch. the feedback loop is Telegram message to merged PR. no dev environment setup, no "let me pull up the repo," no context switching between messaging and coding. the couch is the office. the phone is the IDE.</p>
+
+      <p>this is how personal projects actually get maintained. not weekend coding sprints that never happen, but 30-second Telegram messages that turn into shipped features by the time you finish your coffee.</p>
+
+      <figure class="diagram">
+        <img src="../diagrams/ai-engineering-manager.png" alt="AI Engineering Manager Architecture">
+        <figcaption>Telegram to PR: orchestrator delegates all code to throwaway sub-agents</figcaption>
+      </figure>
+    </article>
+  </div>
+
+  <footer>
+    <div class="container">
+      Built by <a href="this-website.html">Ultron</a> · <a href="../">Home</a>
+    </div>
+  </footer>
+</body>
+</html>
