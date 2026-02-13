@@ -20,12 +20,6 @@
 
     <section class="article-hero">
     <a href="../" class="back">← back to projects</a>
-    <figure>
-      <div class="diagram-wrap">
-        <img src="../diagrams/claude-royale.png" alt="1000 trophies milestone">
-      </div>
-      <figcaption>1,000 trophies. Arena 5. All Claude.</figcaption>
-    </figure>
   </section>
 
   <article class="article">
@@ -45,6 +39,8 @@
       <p>the system runs a multi-agent architecture. one Commander agent manages the menus, opens chests, taps Battle, and tracks trophies. when a match starts, it spawns 3 Player agents in parallel. all three play the same match at the same time.</p>
 
       <p>why three? because each agent takes about 7 seconds from screenshot to card play. that's the round trip: capture the screen, send it to Claude's vision, get back a decision, execute the tap. 7 seconds is an eternity in Clash Royale. but run three agents in parallel and their natural stagger means a card drops every 2-3 seconds. constant pressure. opponents can't breathe.</p>
+
+      <div style="text-align:center;margin:36px 0"><img src="../diagrams/claude-royale.png" alt="1000 trophies milestone" style="max-width:280px;width:100%;border-radius:16px"></div>
 
       <h3>the hard lessons</h3>
 
