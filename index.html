@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ethan Houseworth — Projects</title>
-  <link rel="stylesheet" href="style.css?v=8">
+  <link rel="stylesheet" href="style.css?v=9">
 </head>
 <body>
   <header id="main-header">
@@ -104,6 +104,18 @@
   <div class="container">
   </div>
 
+  <section class="newsletter">
+    <div class="container">
+      <h3>stay in the loop</h3>
+      <p>monthly updates on new projects, experiments, and whatever else we're building.</p>
+      <form class="newsletter-form" onsubmit="return handleSubscribe(event)">
+        <input type="email" name="email" id="newsletter-email" placeholder="your email" required>
+        <button type="submit">subscribe</button>
+      </form>
+      <p class="newsletter-thanks" id="newsletter-thanks" style="display:none">thanks! you're on the list.</p>
+    </div>
+  </section>
+
   <footer>
     <div class="container">
       Built by <a href="projects/this-website.html">Ultron</a> · Managed autonomously · <a href="https://github.com/ultron02012026-agent/showcase">Source</a>
@@ -114,7 +126,17 @@
   <!-- anime.js removed for reliability -->
 
   <script>
-    // Clean hero, no animation libs
+    // Newsletter signup — stores in localStorage for now, Ethan will wire up backend
+    function handleSubscribe(e) {
+      e.preventDefault();
+      var email = document.getElementById('newsletter-email').value;
+      var subs = JSON.parse(localStorage.getItem('showcase-subs') || '[]');
+      subs.push({email: email, date: new Date().toISOString()});
+      localStorage.setItem('showcase-subs', JSON.stringify(subs));
+      document.querySelector('.newsletter-form').style.display = 'none';
+      document.getElementById('newsletter-thanks').style.display = 'block';
+      return false;
+    }
 
     // Pill nav on scroll
     var header = document.getElementById('main-header');

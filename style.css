@@ -394,6 +394,82 @@ header nav a:hover { color: var(--text-secondary); }
 .article .diagram img { max-width: 100%; border-radius: 12px; border: 1px solid var(--border); }
 .article .diagram figcaption { color: var(--text-dim); font-size: 13px; font-style: italic; margin-top: 10px; }
 
+/* ── Newsletter ── */
+.newsletter {
+  text-align: center;
+  padding: 64px 0;
+  border-top: 1px solid var(--border);
+  margin-top: 20px;
+}
+
+.newsletter h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+
+.newsletter > .container > p {
+  color: var(--text-dim);
+  font-size: 15px;
+  margin-bottom: 24px;
+}
+
+.newsletter-form {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.newsletter-form input {
+  flex: 1;
+  padding: 12px 18px;
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  font-size: 15px;
+  font-family: inherit;
+  background: var(--surface);
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.newsletter-form input:focus {
+  border-color: var(--accent-1);
+}
+
+.newsletter-form button {
+  padding: 12px 28px;
+  border: none;
+  border-radius: 100px;
+  background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.newsletter-form button:hover {
+  opacity: 0.9;
+}
+
+.newsletter-thanks {
+  color: var(--accent-1);
+  font-weight: 600;
+  font-size: 15px;
+}
+
+@media (max-width: 768px) {
+  .newsletter-form {
+    flex-direction: column;
+    padding: 0 20px;
+  }
+}
+
 /* ── Footer ── */
 footer {
   padding: 40px 0;
