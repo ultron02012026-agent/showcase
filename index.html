@@ -7,12 +7,12 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <div class="container">
+  <header id="main-header">
+    <div class="header-inner">
       <h1><span>ethan</span>houseworth</h1>
       <nav>
         <a href="https://github.com/houseworthe" target="_blank">GitHub</a>
-        <a href="https://youtube.com/@houseworthe" target="_blank">YouTube</a>
+        <a href="https://linkedin.com/in/ethanhouseworth" target="_blank">LinkedIn</a>
       </nav>
     </div>
   </header>
@@ -23,16 +23,11 @@
       <section class="hero">
         <h2>every project starts with one question:<br>what's the best way for AI to do this?</h2>
         <p>building systems that do the work so I don't have to.</p>
-        <div class="meta-note">
-          <span>🤖</span> this site was <a href="projects/this-website.html">built by an AI agent</a> in 20 minutes. idea to deployed, over Telegram, at 2am.
-        </div>
       </section>
     </div>
   </div>
 
   <div class="container">
-    <hr class="prismatic-divider">
-
     <section class="projects-grid">
       <a href="projects/claude-royale.html" class="project-card">
         <div class="tag tag-ai">AI / Gaming</div>
@@ -46,13 +41,6 @@
         <h3>House Agents</h3>
         <p>Sub-agent framework achieving 95-98% token reduction. Heavy ops in agent contexts, condensed results back to main.</p>
         <div class="stats">187K tokens quarantined · ~5K returned</div>
-      </a>
-
-      <a href="projects/workspace-orchestrator.html" class="project-card">
-        <div class="tag tag-infra">Infrastructure</div>
-        <h3>Workspace Orchestrator</h3>
-        <p>"Chrome Profiles meets AI Agents." Hierarchical workspace system with complete domain isolation and intelligent orchestration.</p>
-        <div class="stats">Design doc · Pre-implementation</div>
       </a>
 
       <a href="projects/golf-ball-rover.html" class="project-card">
@@ -108,7 +96,7 @@
         <div class="tag tag-meta">Meta</div>
         <h3>This Website</h3>
         <p>You're looking at it. Entirely designed, written, diagrammed, and deployed by an AI agent. Zero human code.</p>
-        <div class="stats">11 projects · 11 diagrams · 0 humans</div>
+        <div class="stats">10 projects · 10 diagrams · 0 humans</div>
       </a>
     </section>
   </div>
@@ -119,15 +107,12 @@
     </div>
   </footer>
 
-  <!-- Vanta.js — topology effect for hero background -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.topology.min.js"></script>
-
-  <!-- Anime.js — stagger entrance for cards -->
   <script src="https://cdn.jsdelivr.net/npm/animejs@latest/dist/bundles/anime.umd.min.js"></script>
 
   <script>
-    // ── Vanta.js: organic topology in the hero ──
+    // Vanta.js hero
     if (document.getElementById('hero-vanta')) {
       try {
         VANTA.TOPOLOGY({
@@ -139,19 +124,29 @@
           minWidth: 200,
           scale: 1.0,
           scaleMobile: 1.0,
-          color: 0x8b5cf6,
+          color: 0x5b9bd5,
           backgroundColor: 0xfefefe
         });
-      } catch (e) {
-        // Graceful fallback — hero just has white bg
-      }
+      } catch (e) {}
     }
 
-    // ── Anime.js: staggered card entrance on scroll ──
+    // Pill nav on scroll
+    var header = document.getElementById('main-header');
+    var ticking = false;
+    window.addEventListener('scroll', function() {
+      if (!ticking) {
+        requestAnimationFrame(function() {
+          header.classList.toggle('scrolled', window.scrollY > 80);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+
+    // Anime.js staggered cards
     (function() {
       var { animate, stagger, onScroll } = anime;
       var cards = document.querySelectorAll('.project-card');
-
       if (cards.length) {
         animate(cards, {
           opacity: [0, 1],
