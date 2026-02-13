@@ -182,46 +182,23 @@ header nav a:hover { color: var(--text-secondary); }
 }
 
 .project-card {
-  background: var(--surface);
-  border-radius: 16px;
-  padding: 32px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: transparent;
+  padding: 28px 0;
+  transition: transform 0.2s ease;
   display: flex;
   flex-direction: column;
   cursor: pointer;
   position: relative;
-  /* cards visible by default, anime.js animates if loaded */
+  border: none;
+  border-left: 3px solid transparent;
+  border-image: linear-gradient(180deg, var(--accent-1), var(--accent-2), var(--accent-3)) 1;
+  padding-left: 20px;
 }
 
-/* Gradient border */
-.project-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 16px;
-  padding: 1px;
-  background: var(--gradient);
-  background-size: 300% 300%;
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  opacity: 0.15;
-  transition: opacity 0.3s;
-  animation: borderShift 8s ease-in-out infinite;
-}
-
-@keyframes borderShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-.project-card:hover::before { opacity: 0.55; }
+.project-card::before { display: none; }
 
 .project-card:hover {
-  transform: translateY(-4px) !important;
-  box-shadow: 0 20px 60px rgba(124, 58, 237, 0.07), 0 8px 24px rgba(0, 0, 0, 0.04);
+  transform: translateX(6px);
 }
 
 .project-card .tag {
@@ -229,16 +206,21 @@ header nav a:hover { color: var(--text-secondary); }
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  margin-bottom: 14px;
+  margin-bottom: 10px;
 }
 
 .project-card h3 {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 21px;
+  font-size: 20px;
   font-weight: 700;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   color: var(--text);
   letter-spacing: -0.01em;
+  padding-bottom: 8px;
+  background-image: linear-gradient(90deg, var(--accent-1), var(--accent-2), var(--accent-3));
+  background-size: 100% 2px;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
 }
 
 .project-card p {
@@ -249,9 +231,7 @@ header nav a:hover { color: var(--text-secondary); }
 }
 
 .project-card .stats {
-  margin-top: 20px;
-  padding-top: 16px;
-  border-top: 1px solid var(--border);
+  margin-top: 16px;
   font-size: 12px;
   color: var(--text-dim);
   font-weight: 500;
