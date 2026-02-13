@@ -424,7 +424,11 @@ footer::before {
   }
 
   .project-card p {
-    display: none;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-size: 13px;
   }
 
   .article-hero { padding: 32px 20px 0; }
