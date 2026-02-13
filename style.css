@@ -60,10 +60,7 @@ header h1 {
 header h1 a { color: var(--text); }
 header h1 a:hover { color: var(--text); }
 header h1 span {
-  background: var(--gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #5b9bd5;
 }
 
 header nav { display: flex; gap: 28px; }
