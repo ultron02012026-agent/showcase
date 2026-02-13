@@ -18,12 +18,6 @@
 
     <section class="article-hero">
     <a href="../" class="back">← back to projects</a>
-    <figure>
-      <div class="diagram-wrap">
-        <img src="../diagrams/dj-sam.png" alt="DJ Sam Architecture">
-      </div>
-      <figcaption>Independent agent managing the full DJ track lifecycle</figcaption>
-    </figure>
   </section>
 
   <article class="article">
@@ -32,31 +26,29 @@
         <span class="date">Feb 2026</span>
         <span class="tag tag-dj">DJ / AI</span>
       </div>
-      <p class="subtitle">An AI agent that runs your music operation.</p>
+      <p class="subtitle">my music guy. knows every track, every label, every preference.</p>
 
-      <p>DJ Sam is not a feature. it's a person. well, an AI person. it has its own Telegram bot, its own workspace, its own memory, its own identity. it runs as a fully independent OpenClaw agent alongside Ultron (the main agent), handling everything related to Ethan's DJ life.</p>
+      <p>DJ Sam is one of Ultron's executives on our AI team. not a feature, not a plugin, a fully independent agent with its own Telegram bot, workspace, memory, and identity. Sam runs everything related to my DJ life, and he's become the knowledge base for all of my music.</p>
 
-      <h3>what it does</h3>
+      <h3>the knowledge base</h3>
 
-      <p>Sam manages a 502-track, 10GB music library across Google Drive. when Ethan finds a track he wants, Sam handles acquisition: searching Beatport and Bandcamp, purchasing with Apple Card virtual numbers, downloading, and organizing. it knows the difference between a radio edit and an extended mix and always grabs the extended version.</p>
+      <p>Sam manages a 502-track, 10GB music library and knows all of it. my BPM range (128-132), my genres (deep house, tech house), my preferred labels, what i played last weekend, what i've been listening to this week. ask him "what would work for an opener?" and he pulls suggestions from the library based on energy, key, and what i haven't played recently.</p>
 
-      <p>the library syncs to Rekordbox via pyrekordbox for actual DJ use on the Pioneer XDJ-XZ. Sam handles the metadata, the organization, the file management. Ethan just DJs.</p>
+      <p>he knows the difference between a radio edit and an extended mix. he knows which labels are active and which ones ghost you. he remembers every track i've ever asked about, bought, or rejected. that context accumulates over time through his own memory system, separate from Ultron's.</p>
 
       <h3>the identity thing</h3>
 
-      <p>this is the interesting part. Sam isn't a tool that Ultron calls. it's a peer. separate agent, separate context, separate personality. it has opinions about tracks. it remembers what Ethan played last weekend. it knows his BPM range (128-132), his genres (deep house, tech house), his preferred labels.</p>
-
-      <p>when Ethan messages Sam's Telegram bot, he's talking to Sam, not Ultron wearing a hat. the workspace isolation means Sam's music knowledge doesn't pollute Ultron's context, and Ultron's general tasks don't clutter Sam's focus.</p>
+      <p>Sam isn't a tool that Ultron calls. he's a peer. separate agent, separate context, separate personality. when i message Sam's Telegram bot, i'm talking to Sam, not Ultron wearing a hat. the workspace isolation means Sam's music knowledge doesn't pollute Ultron's context, and Ultron's general tasks don't clutter Sam's focus.</p>
 
       <h3>the purchasing workflow</h3>
 
-      <p>Sam has access to Apple Card virtual numbers for purchases. the workflow: Ethan approves a buy list, Sam navigates to Beatport or Bandcamp via browser automation, adds tracks to cart, applies the virtual card, completes checkout. the receipts get logged, the tracks get downloaded to Google Drive, metadata gets updated in Rekordbox.</p>
+      <p>i screenshot tracks to Sam during the week. he identifies them, adds to the wishlist. Friday, i tell him we're ready to buy. Sam builds the cart across Beatport and Bandcamp, then <a href="first-purchase.html">hands it off to Ultron for payment</a>, because Sam doesn't have card access. Ultron completes the checkout, sends the tracks back. Sam downloads, organizes in Google Drive, applies metadata, and syncs to Rekordbox via pyrekordbox. tracks are loaded on the XDJ-XZ before dinner. the full purchasing workflow is documented in <a href="first-purchase.html">My First Agentic Purchase</a>.</p>
 
-      <p>no manual downloading. no drag-and-drop file management. no spreadsheets of what was bought where. Sam handles the entire pipeline from "i want this track" to "it's in your Rekordbox ready to play."</p>
+      <p>the library syncs to Rekordbox for actual DJ use on the Pioneer XDJ-XZ. no manual downloading, no drag-and-drop file management, no spreadsheets of what was bought where.</p>
 
       <h3>why it matters</h3>
 
-      <p>this is what multi-agent AI looks like in practice. not one agent doing everything, but specialized agents with their own domains, identities, and responsibilities. Sam is proof that AI agents work better when they have focus.</p>
+      <p>this is what multi-agent AI looks like in practice. not one agent doing everything, but specialized agents with their own domains, identities, and responsibilities. Sam is proof that AI agents work better when they have focus, and that the real value isn't just automation, it's accumulated knowledge. Sam gets better at his job every week because he remembers everything.</p>
 
       <div class="copy-arch-wrap"><button class="copy-arch" data-arch="Build an autonomous AI agent with its own identity, messaging interface, persistent memory, and workspace , running as a peer alongside a general-purpose agent rather than a tool it calls. Give it a specific domain (e.g. music, finance, fitness). It manages a library/collection via cloud storage, handles purchasing through browser automation with virtual payment methods, maintains metadata, and syncs to the user's actual workflow tools. The agent has preferences, opinions, and domain knowledge that accumulate over time through its own memory system."><svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>copy architecture</button></div>
     <div class="article-newsletter"><p>monthly updates on new projects and experiments.</p><form class="newsletter-pill" action="https://buttondown.com/api/emails/embed-subscribe/houseworth" method="post" target="popupwindow" onsubmit="window.open("https://buttondown.com/houseworth","popupwindow");this.style.display="none";this.nextElementSibling.style.display="block""><input type="email" name="email" id="nl-email" placeholder="your email" required><input type="hidden" value="1" name="embed"><button type="submit"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button></form><p class="newsletter-thanks" style="display:none">thanks! you're on the list.</p></div></article>
