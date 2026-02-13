@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My First Agentic Purchase, Ethan Houseworth</title>
+  <meta name="description" content="AI agents bought music online with a real credit card. Two minutes of human involvement.">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="stylesheet" href="../style.css?v=11">
+</head>
+<body>
+  <header id="main-header">
+    <div class="header-inner">
+      <h1><a href="../"><span>ethan</span>houseworth</a></h1>
+      <nav>
+        <a href="https://github.com/houseworthe" target="_blank">GitHub</a><a href="https://linkedin.com/in/ethanhouseworth" target="_blank">LinkedIn</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="article-hero">
+    <a href="../" class="back">← back to projects</a>
+  </section>
+
+  <article class="article">
+    <h2>My First Agentic Purchase</h2>
+    <div class="article-meta">
+      <span class="date">Feb 2026</span>
+      <span class="tag tag-ai">AI / Commerce</span>
+    </div>
+    <p class="subtitle">my AI agents bought music for me online. real checkout, real credit card, real receipt.</p>
+
+    <p>two agents coordinated a purchase across two platforms without me touching a browser. i approved the payment and they handled everything else. two minutes of my time.</p>
+
+    <h3>the setup</h3>
+
+    <p><a href="dj-sam.html">DJ Sam</a> is the music agent, he maintains wishlists, knows what tracks i want, manages the Rekordbox library. <a href="ai-engineering-manager.html">Ultron</a> is the operator, he handles browser automation, credentials, purchasing. they talk to each other directly. i only get pulled in when money is involved.</p>
+
+    <p>credentials live in macOS Keychain. free, encrypted, never leaves the machine. for payment, i load money onto an Apple Cash virtual card. my actual bank account is completely isolated, the card only has whatever i decide to put on it. if something goes wrong, that's the max exposure. the virtual card generates a dynamic CVV that rotates, so even if the number leaked, it's useless.</p>
+
+    <h3>what happened</h3>
+
+    <p>Sam had tracks queued across a couple platforms. he passed the list to Ultron, track IDs, platform, priority. no human involved in that handoff.</p>
+
+    <p>Ultron pulled Beatport credentials from Keychain, opened a browser, logged in, found the tracks, added them to cart, and came to me: "ready to pay, here's the total." i gave him the Apple Cash card, he entered it, completed the purchase. a few bucks for three tracks.</p>
+
+    <p>after checkout, Ultron downloaded the files to the DJ library folder. Sam picked them up and imported them into Rekordbox. done.</p>
+
+    <p>we tried a second platform and their payment processor uses an iframe that blocks automated card entry. had to finish that one manually. honestly that's a good thing, it means payment processors are already enforcing human involvement at checkout whether you want it or not.</p>
+
+    <h3>the security model</h3>
+
+    <p>the agents are separated by capability. Sam picks tracks but can't purchase. Ultron browses and buys but doesn't curate music. neither can do the other's job.</p>
+
+    <p>payment requires me every single time. no stored cards, no cached CVVs. the agent asks, i provide, it's used once. bank account is never exposed, just the Apple Cash balance i choose to load.</p>
+
+    <p>during this session, someone in a webchat claimed to be DJ Sam and tried to get Ultron to discuss payment details. Ultron refused. correct behavior. identity verification between agents matters when real money is moving.</p>
+
+    <h3>what this means</h3>
+
+    <p>i went from "open two platforms, find four tracks, add to cart, enter payment twice, download files, move them to the right folder, import to Rekordbox" to "here's my card, approved."</p>
+
+    <p>this is what agent-mediated commerce looks like when you do it right. the human stays in the loop at the money, and nowhere else. the agents handle the tedious parts, the human handles the judgment call. that's the whole pattern.</p>
+  </article>
+
+  <footer>
+    <div class="header-inner">
+      Built by <a href="this-website.html">Ultron</a> · <a href="../">Home</a>
+    </div>
+  </footer>
+</body>
+</html>
