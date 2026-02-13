@@ -192,16 +192,7 @@ header nav a:hover { color: var(--text-secondary); }
   border: none;
 }
 
-.project-card::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 3px;
-  border-radius: 3px;
-  background: var(--accent-1);
-}
+/* card border removed */
 
 .project-card:hover {
   transform: translateX(6px);
