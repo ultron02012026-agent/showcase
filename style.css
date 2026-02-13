@@ -238,6 +238,20 @@ header nav a:hover { color: var(--text-secondary); }
   flex: 1;
 }
 
+.project-card .read-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 12px;
+  font-size: 13px;
+  color: #999;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.project-card:hover .read-cta {
+  color: #666;
+}
+
 .project-card .stats {
   margin-top: 16px;
   font-size: 12px;
