@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sports Betting Promos, Ethan Houseworth</title>
+  <meta name="description" content="Turning sports betting welcome bonuses into $792 profit in 5 days using AI-powered research and matched betting.">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="stylesheet" href="../style.css?v=10">
+</head>
+<body>
+  <header id="main-header">
+    <div class="header-inner">
+      <h1><a href="../"><span>ethan</span>houseworth</a></h1>
+      <nav>
+        <a href="https://github.com/houseworthe" target="_blank">GitHub</a><a href="https://linkedin.com/in/ethanhouseworth" target="_blank">LinkedIn</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="article-hero">
+    <a href="../" class="back">← back to projects</a>
+  </section>
+
+  <article class="article">
+    <h2>Sports Betting Promos</h2>
+    <p class="subtitle">$792 in 5 days from welcome bonuses. the AI did the research, i placed the bets.</p>
+
+    <p>every sports betting app gives new users a welcome bonus. deposit match, bonus bets, profit boosts. most people sign up, lose the bonus on bad bets, and move on. the idea was simple: what if an AI agent researched every operator in Kansas, figured out exactly how to convert each bonus into real money, and told me exactly what to bet?</p>
+
+    <h3>how it worked</h3>
+
+    <p>the agent (Ultron) spent about 110,000 words researching the Kansas sports betting market. every licensed operator, every welcome offer, the terms and conditions, expiration windows, playthrough requirements, and which ones i could actually sign up for (three operators were out because i had old accounts from years ago).</p>
+
+    <p>the output was a ranked list of operators with expected profit per bonus, optimal conversion strategy, and a custom hedge calculator that pulled live odds from 40+ sportsbooks to find the best hedge for each bonus bet.</p>
+
+    <p>for most bonuses, the play is matched betting. you get a "bonus bet" (stake not returned), you place it on one side, hedge the other side with real money on a different book. no matter who wins, you keep roughly 50% of the bonus value. the math is just algebra, but doing it manually across multiple books with shifting odds is tedious. the agent handled all of it.</p>
+
+    <h3>results</h3>
+
+    <p>Kansas, Thanksgiving 2025. five days of execution.</p>
+
+    <p><strong>Caesars:</strong> $500 in profit boosts (20 separate boosts). went 15-5 in gambler mode instead of hedging every one. +$544.</p>
+
+    <p><strong>Betr:</strong> $210 deposit match with 1x playthrough. DFS pick'em format, almost zero house edge. +$207.</p>
+
+    <p><strong>ESPN BET:</strong> $100 in bonus bets (5x $20). standard hedge strategy. +$45.</p>
+
+    <p><strong>total: +$792 on $615 deposited. 98% conversion rate. ~10 hours of work including all research and setup.</strong></p>
+
+    <h3>what the agent actually did</h3>
+
+    <p>the heavy lifting was research and math. the agent read every operator's terms, cross-referenced state licensing data, flagged which operators i already had accounts with (disqualifying), built a Python hedge calculator with 17 passing tests, and integrated live odds fetching so i could get the optimal hedge in seconds.</p>
+
+    <p>during execution, i'd text "i have a $25 bonus bet on the Lakers at -110 on ESPN BET" and the agent would pull live odds across every book and tell me exactly where to place the hedge and for how much. no spreadsheets, no manual math.</p>
+
+    <p>we also looked into fully automating the betting through browser automation, having the agent place bets on its own. tried it, and it really wasn't practical. the apps use geolocation, two-factor auth, and constantly shifting UIs. the juice wasn't worth the squeeze. the real value was in the research and calculations, not the clicking.</p>
+
+    <h3>why it works</h3>
+
+    <p>welcome bonuses are a customer acquisition cost for sportsbooks. they expect most people to lose the money gambling. matched betting converts that acquisition cost into guaranteed (or near-guaranteed) profit by hedging both sides. it's not a secret, it's just tedious enough that most people don't bother.</p>
+
+    <p>the AI made the tedious part instant. research that would take days happened in hours. hedge calculations that take minutes happened in seconds. the only manual part was placing the actual bets on my phone.</p>
+
+    <h3>what i'd do differently</h3>
+
+    <p>check for pre-existing accounts first. i lost three operators (DraftKings, FanDuel, bet365) because i had dormant accounts from years ago. that knocked out roughly $400 in expected value before i even started.</p>
+
+    <p>also, the "gambler mode" strategy on Caesars (not hedging, just picking winners) worked out great at 75% win rate, but that's variance. could have easily gone the other way. for anyone replicating this, hedge everything unless you're comfortable with the swings.</p>
+
+    <button class="copy-arch" data-arch="Build an AI-assisted sports betting promotion extraction system. The agent researches every licensed sportsbook operator in a target state, catalogs welcome bonuses and terms, identifies which offers the user qualifies for, and ranks them by expected value. It includes a matched betting hedge calculator that pulls live odds from an odds API across 40+ sportsbooks to find optimal hedges for bonus bets (stake-not-returned format). During execution, the user describes their bonus bet and the agent returns the exact hedge: which book, which side, how much, and expected conversion. The system is research and math, not automated betting. What state (or states) do you want to target?">copy architecture</button>
+  </article>
+
+  <footer>
+    <div class="header-inner">
+      Built by <a href="this-website.html">Ultron</a> · <a href="../">Home</a>
+    </div>
+  </footer>
+
+  <script src="../copy-arch.js"></script>
+</body>
+</html>
