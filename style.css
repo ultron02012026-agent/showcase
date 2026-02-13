@@ -603,25 +603,19 @@ footer::before {
 }
 .profile-card {
   display: flex;
-  align-items: flex-start;
-  gap: 16px;
-  max-width: 360px;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 300px;
 }
 .profile-avatar {
-  width: 56px;
-  height: 56px;
+  width: 88px;
+  height: 88px;
   border-radius: 50%;
   object-fit: cover;
   flex-shrink: 0;
-}
-.profile-initials {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--accent-1);
-  color: white;
-  font-weight: 700;
-  font-size: 18px;
+  border: 3px solid var(--accent-1);
+  margin-bottom: 12px;
 }
 .profile-info strong {
   font-size: 15px;
@@ -636,6 +630,7 @@ footer::before {
 .profile-links {
   display: flex;
   gap: 16px;
+  justify-content: center;
 }
 .profile-links a {
   font-size: 12px;
