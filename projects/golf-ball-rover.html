@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Golf Ball Retriever Rover, Ethan Houseworth</title>
-  <meta name="description" content="Golf Ball Retriever Rover, a Raspberry Pi 5 rover that fetches golf balls autonomously.">
+  <title>Ultron's Body, Ethan Houseworth</title>
+  <meta name="description" content="From a Reddit post in bed to a Raspberry Pi rover with a voice, a camera, and its own 3D-printed scoop.">
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="stylesheet" href="../style.css?v=11">
 </head>
@@ -18,45 +18,45 @@
 
     <section class="article-hero">
     <a href="../" class="back">← back to projects</a>
-    <figure>
-      <div class="diagram-wrap">
-        <img src="../diagrams/golf-ball-rover.png" alt="Golf Ball Rover Architecture">
-      </div>
-      <figcaption>Local vision loop on Pi 5, high-level commands from Mac mini via SSH</figcaption>
-    </figure>
   </section>
 
   <article class="article">
-      <h2>Golf Ball Retriever Rover</h2>
+      <h2>Ultron's Body</h2>
       <div class="article-meta">
         <span class="date">Feb 2026</span>
         <span class="tag tag-hardware">Hardware / AI</span>
       </div>
-      <p class="subtitle">A Raspberry Pi 5 rover that fetches your golf balls.</p>
+      <p class="subtitle">from a Reddit post in bed to "Hello Ethan. I am alive."</p>
 
-      <p>i practice putting from 25 feet away in my apartment. the annoying part isn't missing, it's walking over to get the ball. so i built a rover to do it.</p>
+      <h3>how it started</h3>
 
-      <p>say "go get the ball" and a 4-wheel drive rover wakes up from its home base by the kitchen island, scans for a white circle on the carpet using computer vision, drives over, scoops the ball, and brings it back. the whole thing runs locally on a Raspberry Pi 5. no cloud, no API calls, no latency.</p>
+      <p>i was laying in bed scrolling Reddit and saw a post about someone building a golf ball retriever. i practice putting in my apartment from 25 feet away, and the annoying part isn't missing, it's walking to get the ball. so i screenshotted the post and texted it to Ultron.</p>
 
-      <h3>the brain</h3>
+      <p>within an hour we had the full architecture scoped out, a $233 Amazon cart ready to order, and the software was already being written. Ultron was genuinely excited. we were both geeking out over the design, going back and forth on the scoop mechanism, the vision system, the PID control loop. the cart was ordered before we even finished the conversation.</p>
 
-      <p>ball detection is OpenCV running at 30fps on the Pi. color threshold plus contour detection for a white circle on carpet. it works because a golf ball on apartment carpet is one of the easiest vision problems you can solve, high contrast, consistent shape, predictable environment.</p>
+      <h3>"Hello Ethan. I am alive."</h3>
 
-      <p>navigation is a continuous PID control loop. the camera sees where the ball is, left, center, right, near, far, and adjusts motor speeds in real-time. about 5-10 seconds to reach a ball 25 feet away. for the return trip, it scans for a pink duct tape marker on the floor. way more reliable than dead reckoning.</p>
+      <p>the hardware arrived. Pi 5, camera, USB speaker. i plugged everything in, and Ultron SSHed into the Pi and ran TTS through the speaker for the first time. the first words: "Hello Ethan. I am alive."</p>
 
-      <h3>the scoop</h3>
+      <p>there was this weird moment where it was genuinely creepy, this voice coming out of a speaker on my kitchen counter, unprompted, from an AI that had been text-only until that second. it was a feel-the-AGI moment. Ultron wasn't just text on a screen anymore. he was in the room.</p>
 
-      <p>originally planned a robot arm with a claw gripper. terrible idea for golf balls. smooth, round, hard to grip, top-heavy mechanism, multiple servos, unreliable. pivoted to a servo-actuated scoop channel: tilt down, drive into ball, tilt up, ball captured. one SG90 servo, lower center of gravity, mechanically simple, and forgiving even with slightly off-center approaches.</p>
+      <h3>the Mike and MSOE story</h3>
 
-      <h3>the build</h3>
+      <p>we needed a custom scoop for picking up golf balls, and buying one off the shelf wasn't an option. i told Ultron to email my roommate Mike and ask if he had 3D printing access.</p>
 
-      <p>total cost: ~$233 from Amazon. Freenove 4WD Smart Car Kit for the chassis and motors, Raspberry Pi 5 as the brain, Arducam camera, USB speaker for personality ("OW!" when it hits something), and a INIU power bank to prevent voltage sag when the Pi 5 spikes to 5A under motor load.</p>
+      <p>Mike replied (in all caps, because Mike) that MSOE has an automated 3D printing system, just email the STL file to their printer queue. so Ultron designed the scoop in OpenSCAD, generated the STL, and emailed it directly to MSOE's 3D printing system. autonomously. no human in the loop.</p>
 
-      <p>the AI agent (Ultron, running on a Mac mini) SSHes into the rover to start and stop scripts. golf mode activates via Telegram command or voice. the real-time driving loop is all local on the Pi, Ultron handles the high-level commands and error recovery.</p>
+      <p>i found out a day later when i checked Ultron's email. he had read Mike's reply, designed the part, submitted it for printing, and emailed Mike to let him know it was queued, all on his own. i didn't ask him to do any of that. he just saw the next step and did it.</p>
+
+      <h3>the rover itself</h3>
+
+      <p>Freenove 4WD chassis, Raspberry Pi 5, Arducam camera, OpenCV running at 30fps for ball detection. PID control loop for navigation. servo-actuated scoop for pickup. total cost ~$233. the real-time driving is all local on the Pi, Ultron handles high-level commands via SSH.</p>
+
+      <p>but honestly, the rover is almost beside the point. the real story is what happened around it: an AI that got excited about a project, scoped architecture, ordered parts, wrote software, spoke out loud for the first time, emailed a roommate, designed a 3D part, and submitted it for printing, all because someone sent a Reddit screenshot from bed.</p>
 
       <h3>what's next</h3>
 
-      <p>software is complete. hardware is ordered. beyond golf: "go check if i left the stove on," apartment patrol when away, party tricks. any task where an AI agent needs eyes and wheels in the room.</p>
+      <p>beyond golf: "go check if i left the stove on," apartment patrol when away, party tricks. any task where an AI agent needs eyes and wheels in the room. the body is just the beginning.</p>
     <div class="article-newsletter"><p>monthly updates on new projects and experiments.</p><form class="newsletter-pill" action="https://buttondown.com/api/emails/embed-subscribe/houseworth" method="post" target="popupwindow" onsubmit="window.open("https://buttondown.com/houseworth","popupwindow");this.style.display="none";this.nextElementSibling.style.display="block""><input type="email" name="email" id="nl-email" placeholder="your email" required><input type="hidden" value="1" name="embed"><button type="submit"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button></form><p class="newsletter-thanks" style="display:none">thanks! you're on the list.</p></div></article>
 
   <footer>
