@@ -65,12 +65,13 @@ header.scrolled .header-inner {
   max-width: 220px;
   padding: 8px 24px;
   justify-content: center;
+  transition-delay: 0.15s;
 }
 
 header nav {
   display: flex;
   gap: 28px;
-  transition: opacity 0.3s ease, max-width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 0.15s ease, max-width 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0.1s, gap 0.3s;
   max-width: 300px;
   overflow: hidden;
 }
