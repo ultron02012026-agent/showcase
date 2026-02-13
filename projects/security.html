@@ -30,9 +30,17 @@
       </div>
       <p class="subtitle">locking down an AI agent that has access to your life</p>
 
-      <p>my AI agent can read my email, push to my GitHub, control my lights, and buy things with my money. so yeah, security matters.</p>
+      <p>my AI agent controls my lights, buys things with my money, and runs 24/7 on a Mac mini in my apartment. so yeah, security matters.</p>
 
-      <p>this isn't a theoretical framework. it's the actual stack running right now on the Mac mini in my apartment. every layer is real, every tool is in use. here's how we lock it down.</p>
+      <p>this isn't a theoretical framework. it's the actual stack running right now. every layer is real, every tool is in use. here's how we lock it down.</p>
+
+      <h3>separate accounts, not shared access</h3>
+
+      <p>this is the most important security decision we made. Ultron cannot read my email. Ultron cannot push to my GitHub. he has his own email (his own Gmail), his own GitHub account, his own credentials. he operates as a separate identity, not as me with my passwords.</p>
+
+      <p>where he needs access to my stuff, it's through controlled API keys and scoped permissions. he can read my calendar because i gave him an API key. he can't delete my calendar. he can send emails from his own address, not from mine. the principle: give the agent its own accounts and give it controlled access into yours via API keys. never hand over your login.</p>
+
+      <p>if you're setting up an agent, this is the first thing to get right. everything else is defense in depth. this is the foundation.</p>
 
       <h3>the network: beryl router (GL-MT3000)</h3>
 
