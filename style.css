@@ -710,9 +710,9 @@ footer::before {
 
 /* ── Author Byline ── */
 .article-byline {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 500;
-  color: var(--text-dim);
+  color: #888 !important;
   margin-top: 4px;
   margin-bottom: 0;
   letter-spacing: 0.02em;
