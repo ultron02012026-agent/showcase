@@ -582,3 +582,56 @@ footer::before {
   overflow: hidden;
   max-width: 360px;
 }
+
+/* ── Profiles ── */
+.profiles {
+  padding: 48px 0;
+  border-top: 1px solid var(--border);
+}
+.profiles-grid {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+.profile-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  max-width: 360px;
+}
+.profile-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.profile-initials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent-1);
+  color: white;
+  font-weight: 700;
+  font-size: 18px;
+}
+.profile-info strong {
+  font-size: 15px;
+  color: var(--text);
+}
+.profile-info p {
+  font-size: 13px;
+  color: var(--text-dim);
+  line-height: 1.6;
+  margin: 4px 0 8px;
+}
+.profile-links {
+  display: flex;
+  gap: 16px;
+}
+.profile-links a {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--accent-1);
+}
