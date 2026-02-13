@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI Engineering Manager, Ethan Houseworth</title>
-  <meta name="description" content="AI Engineering Manager, ship features from the couch via Telegram with AI-driven pull requests.">
+  <meta name="description" content="How I develop with OpenClaw: context-aware PRDs, sub-agent delegation, and Ralph Loops.">
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-  <link rel="stylesheet" href="../style.css?v=11">
+  <link rel="stylesheet" href="../style.css?v=12">
 </head>
 <body>
   <header id="main-header">
@@ -16,14 +16,8 @@
     </div>
   </header>
 
-    <section class="article-hero">
+  <section class="article-hero">
     <a href="../" class="back">← back to projects</a>
-    <figure>
-      <div class="diagram-wrap">
-        <img src="../diagrams/ai-engineering-manager.png" alt="AI Engineering Manager Architecture">
-      </div>
-      <figcaption>Telegram to PR: orchestrator delegates all code to throwaway sub-agents</figcaption>
-    </figure>
   </section>
 
   <article class="article">
@@ -32,49 +26,65 @@
         <span class="date">Feb 2026</span>
         <span class="tag tag-infra">Infrastructure</span>
       </div>
-      <p class="subtitle">Ship features from the couch via Telegram.</p>
+      <p class="subtitle">how i develop with OpenClaw. text a feature, review the plan, ship the PR.</p>
 
-      <p>Ethan texts "add dark mode to the settings page." twenty minutes later there's a PR on staging with tests passing. he never opened a laptop.</p>
+      <p>i text "add dark mode to the settings page" on Telegram. twenty minutes later there's a PR on staging with tests passing. i never opened a laptop.</p>
 
-      <p>that's the workflow. a feature idea arrives as a Telegram message, and an AI agent handles everything between that message and a reviewable pull request. no IDE, no terminal, no context switching. just a guy on a couch texting his engineering team, except the team is one agent.</p>
+      <p>that's the whole workflow. a feature idea arrives as a message, and the agent handles everything between that message and a reviewable pull request. no IDE, no terminal, no context switching. just me on my couch texting my engineering team, except the team is one agent.</p>
 
-      <h3>how it works</h3>
+      <h3>the context-aware PRD skill</h3>
 
-      <p>the agent receives the message and asks clarifying questions. "dark mode everywhere or just settings? should it respect system preference? toggle or dropdown?" two or three messages, enough to remove ambiguity. then it goes to work.</p>
+      <p>this is the most important part of the whole system.</p>
 
-      <p>first, codebase analysis. the agent delegates this to a sub-agent with a throwaway context window. the sub-agent reads the relevant files, maps the architecture, identifies where changes need to happen, and returns a condensed summary. the orchestrator never sees a single line of code. this is critical. the moment you load source files into the manager's context, it starts degrading. code is noisy, verbose, and eats tokens fast. keeping it out of the orchestrator means the orchestrator stays sharp for what it's actually good at: planning and coordination.</p>
+      <p>i built a custom OpenClaw skill called <code>create-issue</code>. when i type <code>/create-issue add dark mode to settings</code>, the orchestrator agent does NOT read the codebase. it doesn't touch a single file. instead, it spawns a sub-agent with a throwaway context window and says: "go analyze the codebase, figure out what needs to change, and come back with a plan."</p>
 
-      <p>next, the agent creates a detailed GitHub issue. not a vague ticket, a real implementation plan: which files to modify, what the expected behavior is, edge cases to handle, how to test it. the kind of issue a senior engineer would write after spending 30 minutes understanding the codebase.</p>
+      <p>the sub-agent reads the relevant files, maps the architecture, identifies where changes need to happen, and creates a detailed GitHub issue. not a vague ticket. a real PRD: which files to modify, what the expected behavior is, edge cases to handle, how to test it. the kind of plan a senior engineer would write after spending 30 minutes reading the code.</p>
 
-      <p>then it spawns an isolated Claude Code session to implement the plan. Claude Code writes the code, creates a feature branch, runs the tests, and opens a PR into staging. the agent notifies Ethan on Telegram when the PR is ready for review.</p>
+      <p>then the sub-agent throws its context away. gone. the orchestrator never saw a line of code, and the codebase analysis doesn't pollute the main session. this is critical. the moment you load source files into the manager's context, it starts degrading. code is noisy, verbose, and eats tokens fast.</p>
 
-      <h3>planning is everything</h3>
+      <h3>why the plan is everything</h3>
 
-      <p>the most important part of this workflow isn't the code. it's the plan. the more detailed and specific the implementation plan, the better the output. when the AI produces bad code, it's almost always because the plan was vague. "add dark mode" produces garbage. "add a dark mode toggle to the settings page that persists to localStorage, respects system preference on first load, and applies a .dark class to the body element" produces something you can ship.</p>
+      <p>i review the GitHub issue before any code gets written. this is the human-in-the-loop moment that actually matters.</p>
 
-      <p>this is the real skill in working with AI: directing it well. when something goes wrong, the first question isn't "why is the AI bad?" it's "what did i fail to specify?" the agent asks clarifying questions for exactly this reason, to fill the gaps in vague instructions before writing a single line of code.</p>
+      <p>when the AI produces bad code, it's almost always because the plan was vague. "add dark mode" produces garbage. but a PRD that says "add a dark mode toggle to the settings page that persists to localStorage, respects system preference on first load, and applies a .dark class to the body element" produces something you can ship.</p>
 
-      <p>the agent also maintains a <code>CLAUDE.md</code> memory file that it updates after every task. what went well, what failed, patterns to avoid, codebase-specific quirks. this is <a href="https://every.to/guides/compound-engineering" target="_blank">compound engineering</a>, each unit of work makes the next one better. the agent gets sharper over time because it's literally writing down what it learned. Every.to's engineering team uses the same pattern at scale, calling it "agent-native" development where AI agents have the same tools and context as human engineers.</p>
+      <p>the skill asks clarifying questions too. "dark mode everywhere or just settings? toggle or dropdown? should it respect system preference?" two or three messages, enough to remove ambiguity. then it writes the plan.</p>
 
-      <h3><a href="house-agents.html">ralph loops</a></h3>
+      <p>the real skill in working with AI: directing it well. when something goes wrong, the first question isn't "why is the AI bad?" it's "what did i fail to specify?"</p>
 
-      <p>the implementation step uses a pattern called <a href="house-agents.html">Ralph Loops</a>. a fresh Claude Code instance gets spun up for each task. completely clean context, no accumulated history, no confusion from previous work. the instance writes code, runs the test suite externally, and if tests pass, commits. if tests fail, it reads the failure, fixes, and tries again. fresh context per task, external verification, commit on green, repeat.</p>
+      <h3>implementation: ralph loops</h3>
 
-      <p>this solves context rot. when a single AI session works on a codebase for hours, it starts hallucinating about code it saw 40 minutes ago. functions that were refactored, variables that were renamed, imports that moved. the context window becomes a liability. Ralph Loops sidestep this entirely. every iteration starts clean. the tests are the source of truth, not the AI's memory.</p>
+      <p>once i approve the plan, the agent spawns an isolated Claude Code session to implement it. this uses a pattern called Ralph Loops: a fresh instance gets spun up for each task. completely clean context, no accumulated history, no confusion from previous work.</p>
 
-      <h3>the key insight</h3>
+      <p>the instance reads the GitHub issue, writes code, runs the test suite, and if tests pass, commits. if tests fail, it reads the failure, fixes, and tries again. fresh context per task, external verification, commit on green, repeat.</p>
 
-      <p>the engineering manager agent never reads code in its own context. ever. all code analysis gets delegated to sub-agents with throwaway context windows. the orchestrator handles intent, planning, coordination, and communication. the sub-agents handle the heavy lifting and throw their context away when done.</p>
+      <p>this solves context rot. when a single AI session works on a codebase for hours, it starts hallucinating about code it saw 40 minutes ago. functions that were refactored, variables that were renamed. Ralph Loops sidestep this entirely. every iteration starts clean. the tests are the source of truth, not the AI's memory.</p>
 
-      <p>this is the same pattern as <a href="house-agents.html">House Agents</a> but applied to an entire development workflow. the manager is the CEO, the sub-agents are the engineers. the CEO doesn't read source code. the CEO reviews the plan and approves the PR.</p>
+      <h3>the architecture</h3>
+
+      <p>three layers, completely separated:</p>
+
+      <p><strong>1. orchestrator (my OpenClaw agent).</strong> handles intent, planning, coordination, and communication. never reads code. this is the engineering manager. it talks to me, delegates work, and reviews results.</p>
+
+      <p><strong>2. analysis sub-agent (throwaway).</strong> reads the codebase, creates the PRD as a GitHub issue, then its context gets discarded. this is the staff engineer who does the deep dive and writes the spec.</p>
+
+      <p><strong>3. implementation sub-agent (Ralph Loop).</strong> fresh Claude Code instance that implements the plan from the GitHub issue. writes code, runs tests, opens a PR. this is the engineer who writes the code.</p>
+
+      <p>the orchestrator stays sharp because it only handles high-level decisions. the sub-agents do the heavy lifting in isolated contexts that get thrown away. this is the same pattern as <a href="house-agents.html">House Agents</a> but applied to an entire development workflow.</p>
+
+      <h3>compound engineering</h3>
+
+      <p>the agent also maintains a <code>CLAUDE.md</code> memory file that it updates after every task. what went well, what failed, patterns to avoid, codebase-specific quirks. this is <a href="https://every.to/guides/compound-engineering" target="_blank">compound engineering</a>, each unit of work makes the next one better. the agent gets sharper over time because it's literally writing down what it learned.</p>
 
       <h3>why it matters</h3>
 
-      <p>a single person can ship real features to real products while sitting on the couch. the feedback loop is Telegram message to merged PR. no dev environment setup, no "let me pull up the repo," no context switching between messaging and coding. the couch is the office. the phone is the IDE.</p>
+      <p>a single person can ship real features to real products from the couch. the feedback loop is: text an idea → review the plan on GitHub → approve → PR lands on staging. the human stays in the loop at the plan, not the code. that's the whole pattern.</p>
 
       <p>this is how personal projects actually get maintained. not weekend coding sprints that never happen, but 30-second Telegram messages that turn into shipped features by the time you finish your coffee.</p>
 
-      <div class="copy-arch-wrap"><button class="copy-arch" data-arch="Build an AI engineering manager that turns chat messages into merged pull requests. The user describes a feature via messaging app. The orchestrator agent asks clarifying questions, then delegates codebase analysis to a throwaway sub-agent that returns a condensed summary — the orchestrator never loads source code into its own context. It creates a detailed implementation plan as a ticket, then spawns an isolated coding session to implement it. The coding session uses fresh-context loops: a clean instance writes code, runs the test suite, and if tests fail it reads failures and retries with a fresh context. Commit on green, open a PR, notify the user. The orchestrator only handles planning and coordination, never code."><svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>copy architecture</button></div>
+      <p class="signature-question"><strong>how could AI do this?</strong></p>
+
+      <div class="copy-arch-wrap"><button class="copy-arch" data-arch="Build an AI engineering manager that turns chat messages into merged pull requests. Create a custom skill that delegates codebase analysis to a throwaway sub-agent, the orchestrator never loads source code into its own context. The sub-agent reads the repo, creates a detailed GitHub issue with file paths, expected behavior, edge cases, and test plan. The human reviews the GitHub issue (this is the approval step). Then an isolated coding session implements the plan using Ralph Loops: fresh context per task, run tests externally, commit on green, retry on red. Three layers: orchestrator (planning), analysis sub-agent (PRD), implementation sub-agent (code). The orchestrator only handles coordination, never code."><svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>copy architecture</button></div>
     <div class="article-newsletter"><p>monthly updates on new projects and experiments.</p><form class="newsletter-pill" action="https://buttondown.com/api/emails/embed-subscribe/houseworth" method="post" target="popupwindow" onsubmit="window.open("https://buttondown.com/houseworth","popupwindow");this.style.display="none";this.nextElementSibling.style.display="block""><input type="email" name="email" id="nl-email" placeholder="your email" required><input type="hidden" value="1" name="embed"><button type="submit"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button></form><p class="newsletter-thanks" style="display:none">thanks! you're on the list.</p></div></article>
 
   <script src="../copy-arch.js"></script>
