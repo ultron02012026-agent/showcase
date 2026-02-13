@@ -460,17 +460,23 @@ footer::before {
 .copy-arch svg {
   width: 16px;
   height: 16px;
+  min-width: 16px;
   fill: none;
-  stroke: currentColor;
+  stroke: white;
   stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
+.copy-arch svg rect,
+.copy-arch svg path {
+  fill: none;
+}
 
 .article-meta {
   display: flex;
-  align-items: center;
-  gap: 12px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
   margin-bottom: 12px;
 }
 .article-meta .date {
