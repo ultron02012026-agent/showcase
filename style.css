@@ -56,7 +56,9 @@ header .header-inner {
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(0, 0, 0, 0.06);
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: max-width 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+              padding 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+              justify-content 0.5s;
 }
 
 header.scrolled .header-inner {
@@ -65,13 +67,19 @@ header.scrolled .header-inner {
   justify-content: center;
 }
 
+header nav {
+  display: flex;
+  gap: 28px;
+  transition: opacity 0.3s ease, max-width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  max-width: 300px;
+  overflow: hidden;
+}
+
 header.scrolled nav {
   opacity: 0;
-  width: 0;
-  overflow: hidden;
+  max-width: 0;
   pointer-events: none;
-  margin: 0;
-  padding: 0;
+  gap: 0;
 }
 
 header h1 {
@@ -88,11 +96,6 @@ header h1 span {
   color: #5b9bd5;
 }
 
-header nav {
-  display: flex;
-  gap: 28px;
-  transition: opacity 0.3s, width 0.4s;
-}
 header nav a { color: var(--text-dim); font-size: 14px; font-weight: 500; }
 header nav a:hover { color: var(--text-secondary); }
 
