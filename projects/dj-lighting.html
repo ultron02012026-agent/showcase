@@ -26,15 +26,23 @@
         <span class="date">Feb 2026</span>
         <span class="tag tag-dj">DJ / Hardware</span>
       </div>
-      <p class="subtitle">Govee lights that react to the music.</p>
+      <p class="subtitle">one text message and the lights handle themselves.</p>
 
-      <p>12 curated light scenes rotating in sync with a DJ set. not random color cycling, scenes designed for deep house and tech house. "Deep Sea + Aurora" for the hypnotic opener, "Dance Party + Dance Party" for peak energy, "Heartbeat + Fire" for pulsing drops.</p>
+      <h3>the problem</h3>
 
-      <h3>phase 1 (done)</h3>
+      <p>i have 8 Govee lights in my apartment, 4 COB strip lights and 4 smart bulbs. the Govee app lets you pick scenes, but that's about it. during a DJ set, i'd pick one scene and just live with it for the whole set because switching meant pulling out my phone, opening the app, changing the scene on the bulbs, then changing the scene on the COBs separately. that's time away from the decks, and it kills the flow.</p>
 
-      <p>8 Govee lights, 4 COB strip lights and 4 smart bulbs, controlled via LAN and Cloud API from a Mac mini. DJ mode runs a timed scene rotation, default is every 59 seconds which hits roughly 32 bars at 130 BPM, Ethan's typical tempo. shuffle mode randomizes the order. one command starts it, one command stops it and restores warm ambient lighting.</p>
+      <h3>the "feel the AGI" moment</h3>
 
-      <p>the COB strips support LAN control with ~0.2ms latency. the bulbs are cloud-only. for beat-sync features, only the COBs matter.</p>
+      <p>this was actually the first thing i hooked into Ultron. Govee had emailed me an API key, so i forwarded the email to Ultron on Telegram and texted "check your email." thirty seconds later the lights in my room started flickering. my friend and i just looked at each other. all i did was forward an email.</p>
+
+      <p>that moment is what made everything else on this site happen. if an AI can go from "here's an email" to "i'm controlling your lights" in 30 seconds, what else can it do?</p>
+
+      <h3>what it does now</h3>
+
+      <p>i text "DJ mode" on Telegram. Ultron pulls up 12 curated scenes designed for deep house and tech house, stuff like "Deep Sea + Aurora" for the hypnotic opener, "Dance Party + Dance Party" for peak energy, "Heartbeat + Fire" for pulsing drops. the scenes rotate every 59 seconds, which hits roughly 32 bars at 130 BPM, my typical tempo. i don't touch my phone for the rest of the set.</p>
+
+      <p>Ultron built the scenes by pulling every available option from the Govee API, testing combinations, and curating the 12 that actually work for house music. i didn't pick them. i just said "make it look good for a DJ set" and he did.</p>
 
       <h3>the roadmap</h3>
 
