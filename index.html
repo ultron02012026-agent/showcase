@@ -109,7 +109,7 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.topology.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/animejs@latest/dist/bundles/anime.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js"></script>
 
   <script>
     // Vanta.js hero
@@ -143,24 +143,21 @@
       }
     });
 
-    // Anime.js staggered cards
-    (function() {
-      var { animate, stagger, onScroll } = anime;
+    // Anime.js staggered cards — simple on load
+    document.addEventListener('DOMContentLoaded', function() {
       var cards = document.querySelectorAll('.project-card');
-      if (cards.length) {
-        animate(cards, {
+      cards.forEach(function(c) { c.style.opacity = '1'; });
+      if (window.anime) {
+        anime({
+          targets: '.project-card',
           opacity: [0, 1],
           translateY: [30, 0],
-          duration: 600,
-          delay: stagger(80),
-          easing: 'easeOutCubic',
-          autoplay: onScroll({
-            target: '.projects-grid',
-            enter: 'bottom-=100 bottom'
-          })
+          delay: anime.stagger(80, {start: 200}),
+          duration: 700,
+          easing: 'easeOutCubic'
         });
       }
-    })();
+    });
   </script>
 </body>
 </html>

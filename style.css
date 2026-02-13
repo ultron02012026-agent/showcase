@@ -192,9 +192,7 @@ header nav a:hover { color: var(--text-secondary); }
   flex-direction: column;
   cursor: pointer;
   position: relative;
-  /* anime.js entrance — start hidden */
-  opacity: 0;
-  transform: translateY(30px);
+  /* cards visible by default, anime.js animates if loaded */
 }
 
 /* Gradient border */
