@@ -18,12 +18,6 @@
 
     <section class="article-hero">
     <a href="../" class="back">← back to projects</a>
-    <figure>
-      <div class="diagram-wrap">
-        <img src="../diagrams/dj-tracks.png" alt="DJ Track Acquisition Architecture">
-      </div>
-      <figcaption>Multi-platform search pipeline from Spotify discovery to Rekordbox</figcaption>
-    </figure>
   </section>
 
   <article class="article">
@@ -32,31 +26,25 @@
         <span class="date">Feb 2026</span>
         <span class="tag tag-dj">DJ / Automation</span>
       </div>
-      <p class="subtitle">From Spotify discovery to Rekordbox-ready in one command.</p>
+      <p class="subtitle">screenshot a track on Monday, it's loaded on the decks by Friday.</p>
 
-      <p>Ethan finds tracks on Spotify during the week. by Friday they need to be purchased, downloaded, and loaded into Rekordbox for the weekend set. that used to be hours of manual work across three different platforms. now it's one message.</p>
+      <p>the old process: hear a track during the week, screenshot it, save it somewhere, forget about half of them, then spend Friday afternoon on Beatport searching one by one, buying extended mixes, downloading, dragging into Rekordbox, sorting. two hours of clicking before you can even start prepping a set.</p>
 
-      <h3>the workflow</h3>
+      <p><span class="signature-question">how could AI do this?</span></p>
 
-      <p>Ethan sends a list of tracks or shares a Spotify playlist. the system searches across platforms in priority order. SoundCloud first, checking for free downloads. then Beatport. then Bandcamp. free downloads get grabbed immediately. paid tracks get added to cart for Ethan to review and approve.</p>
+      <p>now: screenshot the track to <a href="dj-sam.html">DJ Sam</a> on Telegram during the week. he identifies the track, adds it to the wishlist. Friday, i tell Sam we're ready to purchase. he builds the cart across Beatport and Bandcamp, sends it to Ultron for payment (Sam doesn't have card access). Ultron completes the checkout, sends the tracks back to Sam. Sam downloads, organizes in Google Drive, applies metadata, and syncs to Rekordbox via pyrekordbox. tracks are loaded on the XDJ-XZ before dinner.</p>
 
-      <p>always extended versions. always. radio edits are useless for mixing. the system knows to look for the longest available version and flag it if only a radio edit exists.</p>
+      <h3>two agents, one pipeline</h3>
 
-      <h3>how it works</h3>
+      <p>this is a multi-agent workflow. <a href="dj-sam.html">DJ Sam</a> is the music expert, he manages the library, knows the labels, handles the curation. Ultron handles the money, browser automation for checkout, and the handoff back. neither agent does the other's job. Sam never sees a credit card. Ultron never picks tracks.</p>
 
-      <p>browser automation handles all three platforms. no public APIs for cart management on Beatport or Bandcamp, so the system drives a real browser session. searches by track title and artist, navigates to the right result, checks available versions, adds the extended mix to cart.</p>
+      <p>browser automation drives real browser sessions on Beatport and Bandcamp since neither has cart APIs. the matching has to be smart. "Track Name (Artist Remix)" on Spotify might be listed as "Track Name - Artist Remix - Extended Mix" on Beatport. fuzzy matching handles the naming differences, and uncertain matches get flagged for human review instead of buying the wrong track.</p>
 
-      <p>the matching has to be smart. "Track Name (Artist Remix)" on Spotify might be listed as "Track Name - Artist Remix - Extended Mix" on Beatport. different naming conventions across platforms. the system handles fuzzy matching and flags uncertain matches for human review instead of buying the wrong track.</p>
-
-      <h3>the pipeline</h3>
-
-      <p>phase 1 is manual trigger: Ethan sends tracks, system searches and carts, reports back. phase 2 adds Spotify integration, pulling directly from a "To Buy" playlist and auto-running Thursday evening before weekend sets. phase 3 adds smart matching, learning Ethan's label preferences and trusted artists over time.</p>
-
-      <p>after purchase, tracks flow through DJ Sam's pipeline: downloaded, organized in Google Drive, metadata applied, synced to Rekordbox via pyrekordbox. from "i like this song" on Spotify to "it's loaded on my XDJ-XZ" with minimal human effort.</p>
+      <p>always extended versions. always. radio edits are useless for mixing.</p>
 
       <h3>why it matters</h3>
 
-      <p>DJs spend a surprising amount of time on track management. finding, buying, downloading, tagging, organizing, syncing. it's the unglamorous backend of every DJ set. automating it means more time actually mixing and less time clicking through Beatport checkout flows.</p>
+      <p>DJs spend a surprising amount of time on track management. finding, buying, downloading, tagging, organizing, syncing. it's the unglamorous backend of every set. the creative part is mixing, but half the work is logistics. this system turns a 2-hour Friday grind into a text message on Monday and a "ready to buy" on Friday.</p>
 
       <div class="copy-arch-wrap"><button class="copy-arch" data-arch="Build an automated content acquisition pipeline. The user provides a list of items (tracks, assets, files) from a discovery platform. The system searches multiple source platforms in priority order, checking for free options first, then paid. It uses browser automation since most platforms lack cart/purchase APIs. Fuzzy matching handles naming differences across platforms, flagging uncertain matches for human review. Free items download automatically; paid items queue for approval. After acquisition, items flow through an organizing pipeline: download, metadata tagging, sync to the production tool."><svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>copy architecture</button></div>
     </article>
