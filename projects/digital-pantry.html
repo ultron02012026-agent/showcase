@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Digital Pantry, Ethan Houseworth</title>
-  <meta name="description" content="Digital Pantry, an AI-powered kitchen inventory system that knows what's in your fridge.">
+  <title>Health System &amp; Digital Pantry, Ethan Houseworth</title>
+  <meta name="description" content="AI-powered health tracking, kitchen inventory, and grocery awareness, all connected through one agent.">
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="stylesheet" href="../style.css?v=11">
 </head>
@@ -27,16 +27,18 @@
   </section>
 
   <article class="article">
-      <h2>Digital Pantry</h2>
+      <h2>Health System & Digital Pantry</h2>
       <div class="article-meta">
         <span class="date">Feb 2026</span>
         <span class="tag tag-life">Life / AI</span>
       </div>
-      <p class="subtitle">Your kitchen has an API now.</p>
+      <p class="subtitle">the agent knows your body, your food, and your neighborhood.</p>
 
-      <p>"what's for dinner?" is a question that hits different when an AI actually knows what's in your fridge.</p>
+      <p>the system connects three things: a Garmin watch tracking health data, a digital pantry tracking every item in the kitchen, and awareness of local grocery stores. the agent knows you burned 600 calories today, knows what's in your fridge, and knows Go Grocer is a 3-minute walk and open til 9 if you're missing something.</p>
 
-      <p>the digital pantry tracks every food item across 4 zones: cupboard, fridge, freezer, and room (snacks at the desk). it knows quantities, expiration dates, and what's running low. when Ethan asks what's for dinner, it doesn't suggest random recipes from the internet. it suggests meals you can actually make right now with what you have.</p>
+      <h3>the pantry</h3>
+
+      <p>the digital pantry tracks every food item across 4 zones: cupboard, fridge, freezer, and room (snacks at the desk). it knows quantities, expiration dates, and what's running low. when i ask what's for dinner, it doesn't suggest random recipes from the internet. it suggests meals i can actually make right now with what i have.</p>
 
       <h3>how it works</h3>
 
@@ -52,9 +54,21 @@
 
       <p>the system knows Ethan's preferences. what he likes, what he avoids, portion sizes, how often he cooks vs orders out, his go-to lazy meals vs his ambitious cooking nights. it doesn't suggest a 2-hour French recipe on a Tuesday. it suggests the chicken stir-fry that takes 15 minutes and uses the vegetables that are about to go bad.</p>
 
+      <h3>the health data</h3>
+
+      <p>a Garmin watch feeds daily health metrics into a local SQLite database. steps, heart rate, sleep stages, sleep score, stress, body battery, calories burned, floors climbed. the agent pulls yesterday's data every morning and can reference trends over time.</p>
+
+      <p>the health data connects to the pantry. had a heavy workout? the agent factors that into dinner suggestions. sleep score tanked? maybe lay off the late-night snacks. it's not a fitness app, it's context that makes everything else smarter.</p>
+
+      <h3>grocery store awareness</h3>
+
+      <p>the agent knows my local stores. Trader Joe's is the primary run, Metro Market has the stuff TJ's doesn't, Go Grocer is the corner store that's open til 9 and a 3-minute walk. when the shopping list generates, it knows which store carries what. missing one ingredient for dinner? it doesn't say "go to Trader Joe's," it says "Go Grocer has it and they're still open."</p>
+
+      <p>the shopping list becomes a Notion card with a checklist grouped by store, drops into the to-do column, and moves to "To Do" when i'm heading out.</p>
+
       <h3>why it matters</h3>
 
-      <p>meal planning apps exist. grocery list apps exist. recipe apps exist. none of them actually know what's in your kitchen right now. this system does. it's the difference between a cookbook and a personal chef who checked your fridge before suggesting dinner.</p>
+      <p>health apps, meal planning apps, grocery list apps, recipe apps. they all exist. none of them talk to each other. none of them know what's in your kitchen, what your body did today, and which store is closest and still open. this system does, because it's one agent with access to all of it.</p>
 
       <p>the mundane problems are the best ones to automate. nobody tweets about their grocery list, but everyone wastes 20 minutes staring at the fridge every single day.</p>
 
