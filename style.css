@@ -466,3 +466,21 @@ footer::before {
   stroke-linecap: round;
   stroke-linejoin: round;
 }
+
+.article-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.article-meta .date {
+  font-size: 13px;
+  color: var(--text-dim);
+  font-weight: 500;
+}
+.article-meta .tag {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
