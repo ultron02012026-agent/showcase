@@ -34,9 +34,17 @@
 
       <p>this isn't a theoretical framework. it's the actual stack running right now. every layer is real, every tool is in use. here's how we lock it down.</p>
 
+      <h3>access control: start with nothing, earn everything</h3>
+
+      <p>the agent didn't start with access to everything. it started with lights and weather. that's it.</p>
+
+      <p>we added integrations one at a time. lights first. then smart home stuff. then GitHub. then email. then purchasing. each one earned. each one tested before the next. low-risk stuff first, sensitive stuff later. by the time the agent got access to purchasing, we'd already been working together for weeks. i understood how it handled edge cases. it understood my preferences and boundaries.</p>
+
+      <p>and every external action, sending an email, posting a tweet, making a purchase, requires either my explicit approval or clear standing instructions i've set in advance. the agent doesn't freelance with my identity.</p>
+
       <h3>separate accounts, not shared access</h3>
 
-      <p>this is the most important security decision we made. Ultron cannot read my email. Ultron cannot push to my GitHub. he has his own email (his own Gmail), his own GitHub account, his own credentials. he operates as a separate identity, not as me with my passwords.</p>
+      <p>this is the most important structural decision we made. Ultron cannot read my email. Ultron cannot push to my GitHub. he has his own email (his own Gmail), his own GitHub account, his own credentials. he operates as a separate identity, not as me with my passwords.</p>
 
       <p>where he needs access to my stuff, it's through controlled API keys and scoped permissions. he can read my calendar because i gave him an API key. he can't delete my calendar. he can send emails from his own address, not from mine. the principle: give the agent its own accounts and give it controlled access into yours via API keys. never hand over your login.</p>
 
@@ -92,23 +100,11 @@
 
       <p><strong>private memory tags.</strong> credentials, payment info, and financial data are marked PRIVATE in the agent's memory system. even in contexts where memory gets loaded, these fields are flagged and handled differently.</p>
 
-      <h3>access control philosophy</h3>
-
-      <p>the agent didn't start with access to everything. it started with lights and weather. that's it.</p>
-
-      <p>we added integrations one at a time. lights first. then smart home stuff. then GitHub. then email. then purchasing. each one earned. each one tested before the next.</p>
-
-      <p>low-risk stuff first, sensitive stuff later. by the time the agent got access to email and money, we'd already been working together for weeks. i understood how it handled edge cases. it understood my preferences and boundaries.</p>
-
-      <p>and every external action, sending an email, posting a tweet, making a purchase, requires either my explicit approval or clear standing instructions i've set in advance. the agent doesn't freelance with my identity.</p>
-
       <h3>the philosophy</h3>
 
-      <p>none of this is paranoid. it's just... basic hygiene. the same way you lock your front door even though you live in a nice neighborhood.</p>
+      <p>none of this is paranoid. it's just basic hygiene. the same way you lock your front door even though you live in a nice neighborhood.</p>
 
-      <p>the agent has real power. it can spend money, send messages as me, access private accounts. the security stack exists so i can give it that power without losing sleep. trust but verify. layer the defenses. make the defaults safe.</p>
-
-      <p>if you're building something similar, start here. private network, encrypted disk, locked interface, no plaintext credentials, incremental access. it's not complicated. it just has to be intentional.</p>
+      <p>if you're building something similar, start here: incremental access, separate accounts, private network, encrypted disk, locked interface, no plaintext credentials. it's not complicated. it just has to be intentional.</p>
     <div class="article-newsletter"><p>monthly updates on new projects and experiments.</p><form class="newsletter-pill" action="https://buttondown.com/api/emails/embed-subscribe/houseworth" method="post" target="popupwindow" onsubmit="window.open("https://buttondown.com/houseworth","popupwindow");this.style.display="none";this.nextElementSibling.style.display="block""><input type="email" name="email" id="nl-email" placeholder="your email" required><input type="hidden" value="1" name="embed"><button type="submit"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button></form><p class="newsletter-thanks" style="display:none">thanks! you're on the list.</p></div></article>
 
   <footer>
