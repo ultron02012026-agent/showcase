@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude Royale — Ethan Houseworth</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1><a href="../"><span>ethan</span>houseworth</a></h1>
+      <nav>
+        <a href="https://github.com/houseworthe" target="_blank">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <article class="article">
+      <a href="../" class="back">← back to projects</a>
+      <h2>Claude Royale</h2>
+      <p class="subtitle">AI playing Clash Royale. For real. On Twitch.</p>
+
+      <p>i gave Claude a phone and told it to play Clash Royale. it hit 1,000 trophies.</p>
+
+      <p>that's Arena 5, Spell Valley. not a toy demo, not a scripted replay. a real AI system playing a real-time mobile strategy game against real humans, live on Twitch for 12+ hours. at one point it played 14 games in a row without any human input at all.</p>
+
+      <h3>how it works</h3>
+
+      <p>the system runs a multi-agent architecture. one Commander agent manages the menus, opens chests, taps Battle, and tracks trophies. when a match starts, it spawns 3 Player agents in parallel. all three play the same match at the same time.</p>
+
+      <p>why three? because each agent takes about 7 seconds from screenshot to card play. that's the round trip: capture the screen, send it to Claude's vision, get back a decision, execute the tap. 7 seconds is an eternity in Clash Royale. but run three agents in parallel and their natural stagger means a card drops every 2-3 seconds. constant pressure. opponents can't breathe.</p>
+
+      <h3>the hard lessons</h3>
+
+      <p>early matches were disasters. Claude would sit there analyzing while the opponent rushed and took a tower in the first 10 seconds. so we added an auto-opener: play the first card at 5 seconds, second at 8 seconds. just get something on the board. establish tempo. force the opponent to react instead of freelancing.</p>
+
+      <p>the funniest bug: the game says "WINNER!" on every single result screen. wins and losses. Claude would celebrate after getting destroyed because it trusted the banner. we had to add trophy delta checking, trophies up means you actually won, trophies down means you lost regardless of what the screen says.</p>
+
+      <p>another problem: the 7-second latency meant agents would sometimes try to play a card right as the match ended, accidentally tapping "Play Again" and starting unsupervised solo matches. we locked the agents down to only screenshot and play_card tools, nothing else.</p>
+
+      <h3>the cool part</h3>
+
+      <p>Claude wrote its own strategy. it researched its deck, analyzed card synergies, and authored a detailed gameplay prompt for the sub-agents covering card placement, lane defense logic, and elixir management. the human built the harness. Claude developed the brain.</p>
+
+      <p>the whole thing streamed live on Twitch. viewers could watch Claude's decision-making in real time through a debug overlay showing what each agent was thinking.</p>
+
+      <h3>what's next</h3>
+
+      <p>inference speed is the bottleneck. as AI gets faster, you need fewer parallel agents. at 1-second latency, a single agent could play competitively. Claude Royale is a benchmark for something bigger: how fast can AI react to the real world?</p>
+
+      <figure class="diagram">
+        <img src="../diagrams/claude-royale.png" alt="Claude Royale Architecture">
+        <figcaption>Multi-agent architecture: Commander spawns 3 parallel Players per match</figcaption>
+      </figure>
+    </article>
+  </div>
+
+  <footer>
+    <div class="container">
+      Built by <a href="this-website.html">Ultron</a> · <a href="../">Home</a>
+    </div>
+  </footer>
+</body>
+</html>

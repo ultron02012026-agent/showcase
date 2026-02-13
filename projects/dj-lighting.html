@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DJ Lighting System — Ethan Houseworth</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1><a href="../"><span>ethan</span>houseworth</a></h1>
+      <nav><a href="https://github.com/houseworthe" target="_blank">GitHub</a></nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <article class="article">
+      <a href="../" class="back">← back to projects</a>
+      <h2>DJ Lighting System</h2>
+      <p class="subtitle">Govee lights that react to the music.</p>
+
+      <p>12 curated light scenes rotating in sync with a DJ set. not random color cycling, scenes designed for deep house and tech house. "Deep Sea + Aurora" for the hypnotic opener, "Dance Party + Dance Party" for peak energy, "Heartbeat + Fire" for pulsing drops.</p>
+
+      <h3>phase 1 (done)</h3>
+
+      <p>8 Govee lights, 4 COB strip lights and 4 smart bulbs, controlled via LAN and Cloud API from a Mac mini. DJ mode runs a timed scene rotation, default is every 59 seconds which hits roughly 32 bars at 130 BPM, Ethan's typical tempo. shuffle mode randomizes the order. one command starts it, one command stops it and restores warm ambient lighting.</p>
+
+      <p>the COB strips support LAN control with ~0.2ms latency. the bulbs are cloud-only. for beat-sync features, only the COBs matter.</p>
+
+      <h3>the roadmap</h3>
+
+      <p>phase 2: read real-time data from the Pioneer XDJ-XZ over ethernet via Pro DJ Link protocol. BPM, beat position (1-2-3-4), bar count, phrase position, track info. the XDJ-XZ broadcasts this on UDP port 50000. a prolink-go daemon on the Mac mini captures it.</p>
+
+      <p>phase 3: change scenes on musical phrase boundaries instead of arbitrary timers. every 32 bars, the lights shift, and it lands on the 1. feels intentional because it is. no drift from the actual music structure.</p>
+
+      <p>phase 4: BPM-synced pulse. at 130 BPM each beat is 461ms. with 0.2ms LAN latency there's massive headroom for reliable brightness pulsing on every beat. dim to bright to dim, synced to the kick drum.</p>
+
+      <p>phase 5: hand off lighting control to DJ Sam. Sam gets real-time track info plus a restricted govee toolkit, scene switching, intensity levels, flash triggers, beat-sync pulse. Sam decides which scene fits the current track based on genre, energy, and mood from Rekordbox tags.</p>
+
+      <p>phase 6: drop detection. either from Rekordbox phrase analysis (intro, verse, build, drop, outro tags) or rule-based (drops usually land at bar 32, 64, 96). dim during the build, flash on the drop.</p>
+
+      <h3>why it matters</h3>
+
+      <p>most DJ lighting is either manual (distracting during a set) or pre-programmed (doesn't react to what you're actually playing). this system is aware of the music in real-time and makes intelligent decisions about the vibe. phase 1 alone already makes bedroom sets feel like a proper show.</p>
+
+      <figure class="diagram">
+        <img src="../diagrams/dj-lighting.png" alt="DJ Lighting System Architecture">
+        <figcaption>6-phase roadmap from basic rotation to AI-driven, beat-synced lighting</figcaption>
+      </figure>
+    </article>
+  </div>
+
+  <footer>
+    <div class="container">
+      Built by <a href="this-website.html">Ultron</a> · <a href="../">Home</a>
+    </div>
+  </footer>
+</body>
+</html>

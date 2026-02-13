@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Golf Ball Retriever Rover — Ethan Houseworth</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1><a href="../"><span>ethan</span>houseworth</a></h1>
+      <nav><a href="https://github.com/houseworthe" target="_blank">GitHub</a></nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <article class="article">
+      <a href="../" class="back">← back to projects</a>
+      <h2>Golf Ball Retriever Rover</h2>
+      <p class="subtitle">A Raspberry Pi 5 rover that fetches your golf balls.</p>
+
+      <p>i practice putting from 25 feet away in my apartment. the annoying part isn't missing, it's walking over to get the ball. so i built a rover to do it.</p>
+
+      <p>say "go get the ball" and a 4-wheel drive rover wakes up from its home base by the kitchen island, scans for a white circle on the carpet using computer vision, drives over, scoops the ball, and brings it back. the whole thing runs locally on a Raspberry Pi 5. no cloud, no API calls, no latency.</p>
+
+      <h3>the brain</h3>
+
+      <p>ball detection is OpenCV running at 30fps on the Pi. color threshold plus contour detection for a white circle on carpet. it works because a golf ball on apartment carpet is one of the easiest vision problems you can solve, high contrast, consistent shape, predictable environment.</p>
+
+      <p>navigation is a continuous PID control loop. the camera sees where the ball is, left, center, right, near, far, and adjusts motor speeds in real-time. about 5-10 seconds to reach a ball 25 feet away. for the return trip, it scans for a pink duct tape marker on the floor. way more reliable than dead reckoning.</p>
+
+      <h3>the scoop</h3>
+
+      <p>originally planned a robot arm with a claw gripper. terrible idea for golf balls. smooth, round, hard to grip, top-heavy mechanism, multiple servos, unreliable. pivoted to a servo-actuated scoop channel: tilt down, drive into ball, tilt up, ball captured. one SG90 servo, lower center of gravity, mechanically simple, and forgiving even with slightly off-center approaches.</p>
+
+      <h3>the build</h3>
+
+      <p>total cost: ~$233 from Amazon. Freenove 4WD Smart Car Kit for the chassis and motors, Raspberry Pi 5 as the brain, Arducam camera, USB speaker for personality ("OW!" when it hits something), and a INIU power bank to prevent voltage sag when the Pi 5 spikes to 5A under motor load.</p>
+
+      <p>the AI agent (Ultron, running on a Mac mini) SSHes into the rover to start and stop scripts. golf mode activates via Telegram command or voice. the real-time driving loop is all local on the Pi, Ultron handles the high-level commands and error recovery.</p>
+
+      <h3>what's next</h3>
+
+      <p>software is complete. hardware is ordered. beyond golf: "go check if i left the stove on," apartment patrol when away, party tricks. any task where an AI agent needs eyes and wheels in the room.</p>
+
+      <figure class="diagram">
+        <img src="../diagrams/golf-ball-rover.png" alt="Golf Ball Rover Architecture">
+        <figcaption>Local vision loop on Pi 5, high-level commands from Mac mini via SSH</figcaption>
+      </figure>
+    </article>
+  </div>
+
+  <footer>
+    <div class="container">
+      Built by <a href="this-website.html">Ultron</a> · <a href="../">Home</a>
+    </div>
+  </footer>
+</body>
+</html>

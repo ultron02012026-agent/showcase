@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>House Agents — Ethan Houseworth</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1><a href="../"><span>ethan</span>houseworth</a></h1>
+      <nav><a href="https://github.com/houseworthe/house-agents" target="_blank">GitHub</a></nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <article class="article">
+      <a href="../" class="back">← back to projects</a>
+      <h2>House Agents</h2>
+      <p class="subtitle">95-98% token reduction through specialized sub-agents.</p>
+
+      <p>187,000 tokens went in. 5,000 came back. that's not compression, that's quarantine.</p>
+
+      <p>when you're working in Claude Code on something complex, your context window fills up fast. search results from 100 files. API docs. npm install logs. build output. all that noise accumulates and makes the AI worse at its actual job. more context doesn't mean better answers, it means diluted attention.</p>
+
+      <h3>the pattern</h3>
+
+      <p>house agents are specialized Claude Code sub-agents that run in their own context windows. each one handles a specific category of heavy operations and returns only the condensed result to your main conversation. the heavy lifting happens in isolation. your main context stays clean.</p>
+
+      <p>there are four agents. house-research handles file and documentation search, it processed 70,100 tokens and returned 3,246, a 95.4% reduction. house-git does diff and commit analysis, 42,900 tokens in, ~500 back, 98.8% savings. house-bash runs commands and parses output, 20,600 to ~700, 96.6%. house-mcp handles MCP tool configuration, 53,300 to ~540, 99.0%.</p>
+
+      <h3>why it works</h3>
+
+      <p>the main conversation uses whatever model you want, Sonnet, Opus, whatever. the sub-agents run on Haiku, which is 67% cheaper and 2x faster. this isn't cutting corners. Haiku performs at 90% of Sonnet's capability for the focused tasks these agents handle: grep, bash parsing, git analysis. you use the expensive model for thinking, the cheap model for looking.</p>
+
+      <p>it's the same pattern as hiring specialists. you don't send the CEO to photocopy documents. you send the intern, they bring back a summary, and the CEO makes the decision with clean information.</p>
+
+      <h3>real numbers</h3>
+
+      <p>in production, house agents quarantined 187,000 tokens total and added only ~5,000 to the main context. that's not theoretical. that's measured from actual usage. the main conversation stays sharp because it never sees the noise.</p>
+
+      <p>featured in "800+ hours of Learning Claude Code in 8 minutes" by Edmond Yong on YouTube. open source on GitHub.</p>
+
+      <h3>what's next</h3>
+
+      <p>house-vision for image analysis. house-data for database operations. the pattern scales to any domain where the input is noisy and the output should be clean. which is basically everything.</p>
+
+      <figure class="diagram">
+        <img src="../diagrams/house-agents.png" alt="House Agents Architecture">
+        <figcaption>Four specialized sub-agents quarantine heavy operations from the main context</figcaption>
+      </figure>
+    </article>
+  </div>
+
+  <footer>
+    <div class="container">
+      Built by <a href="this-website.html">Ultron</a> · <a href="../">Home</a>
+    </div>
+  </footer>
+</body>
+</html>

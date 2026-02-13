@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DJ Track Acquisition — Ethan Houseworth</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1><a href="../"><span>ethan</span>houseworth</a></h1>
+      <nav><a href="https://github.com/houseworthe" target="_blank">GitHub</a></nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <article class="article">
+      <a href="../" class="back">← back to projects</a>
+      <h2>DJ Track Acquisition</h2>
+      <p class="subtitle">From Spotify discovery to Rekordbox-ready in one command.</p>
+
+      <p>Ethan finds tracks on Spotify during the week. by Friday they need to be purchased, downloaded, and loaded into Rekordbox for the weekend set. that used to be hours of manual work across three different platforms. now it's one message.</p>
+
+      <h3>the workflow</h3>
+
+      <p>Ethan sends a list of tracks or shares a Spotify playlist. the system searches across platforms in priority order. SoundCloud first, checking for free downloads. then Beatport. then Bandcamp. free downloads get grabbed immediately. paid tracks get added to cart for Ethan to review and approve.</p>
+
+      <p>always extended versions. always. radio edits are useless for mixing. the system knows to look for the longest available version and flag it if only a radio edit exists.</p>
+
+      <h3>how it works</h3>
+
+      <p>browser automation handles all three platforms. no public APIs for cart management on Beatport or Bandcamp, so the system drives a real browser session. searches by track title and artist, navigates to the right result, checks available versions, adds the extended mix to cart.</p>
+
+      <p>the matching has to be smart. "Track Name (Artist Remix)" on Spotify might be listed as "Track Name - Artist Remix - Extended Mix" on Beatport. different naming conventions across platforms. the system handles fuzzy matching and flags uncertain matches for human review instead of buying the wrong track.</p>
+
+      <h3>the pipeline</h3>
+
+      <p>phase 1 is manual trigger: Ethan sends tracks, system searches and carts, reports back. phase 2 adds Spotify integration, pulling directly from a "To Buy" playlist and auto-running Thursday evening before weekend sets. phase 3 adds smart matching, learning Ethan's label preferences and trusted artists over time.</p>
+
+      <p>after purchase, tracks flow through DJ Sam's pipeline: downloaded, organized in Google Drive, metadata applied, synced to Rekordbox via pyrekordbox. from "i like this song" on Spotify to "it's loaded on my XDJ-XZ" with minimal human effort.</p>
+
+      <h3>why it matters</h3>
+
+      <p>DJs spend a surprising amount of time on track management. finding, buying, downloading, tagging, organizing, syncing. it's the unglamorous backend of every DJ set. automating it means more time actually mixing and less time clicking through Beatport checkout flows.</p>
+
+      <figure class="diagram">
+        <img src="../diagrams/dj-tracks.png" alt="DJ Track Acquisition Architecture">
+        <figcaption>Multi-platform search pipeline from Spotify discovery to Rekordbox</figcaption>
+      </figure>
+    </article>
+  </div>
+
+  <footer>
+    <div class="container">
+      Built by <a href="this-website.html">Ultron</a> · <a href="../">Home</a>
+    </div>
+  </footer>
+</body>
+</html>

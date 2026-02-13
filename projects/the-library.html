@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Library — Ethan Houseworth</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1><a href="../"><span>ethan</span>houseworth</a></h1>
+      <nav><a href="https://github.com/houseworthe" target="_blank">GitHub</a></nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <article class="article">
+      <a href="../" class="back">← back to projects</a>
+      <h2>The Library</h2>
+      <p class="subtitle">Killed Audible in 30 minutes.</p>
+
+      <p>Ethan went to the gym. when he came back, he had a complete audiobook system that replaced Audible. built entirely by an AI agent in 30 minutes. no human involvement.</p>
+
+      <p>that's the whole pitch. an AI built a production-quality audiobook pipeline, from PDF to your ears, while a human was doing bicep curls.</p>
+
+      <h3>how it works</h3>
+
+      <p>the pipeline starts with a PDF. the system extracts the text, chunks it into chapters, and sends each chapter through ElevenLabs text-to-speech. the audio files come back as high-quality narration, not robot voice, actual natural-sounding speech.</p>
+
+      <p>the generated audio gets served as an RSS feed running on port 8282 as a launchd service on the Mac mini. Ethan subscribes to the feed in Apple Podcasts. that's it. each book shows up as a podcast with chapters as episodes. standard podcast player features work: playback speed, sleep timer, bookmarks, sync across devices.</p>
+
+      <h3>the library</h3>
+
+      <p>6 books and growing. currently reading Steve Jobs by Walter Isaacson. the system handles any PDF, fiction or nonfiction, short or long. chapter detection is smart enough to handle most book structures without manual intervention.</p>
+
+      <h3>why Apple Podcasts</h3>
+
+      <p>Audible's app is fine but it's a locked ecosystem. $15/month for one book. this system costs whatever ElevenLabs charges per chapter (pennies per book for the text-to-speech) and uses an app Ethan already has on every device. no new app to install, no subscription, no DRM. the RSS feed means any podcast app works.</p>
+
+      <h3>the 30-minute part</h3>
+
+      <p>this is the part that matters. Ultron (the AI agent) identified the need, designed the pipeline, wrote the code, set up the launchd service, generated the first book, and had the RSS feed live before Ethan finished his workout. no prompting, no back-and-forth, no "can you also add..." iterations. the agent understood the goal and shipped it.</p>
+
+      <p>that's the difference between a chatbot and an agent. a chatbot answers questions. an agent builds systems while you're at the gym.</p>
+
+      <figure class="diagram">
+        <img src="../diagrams/the-library.png" alt="The Library Architecture">
+        <figcaption>PDF → chapters → ElevenLabs TTS → RSS feed → Apple Podcasts</figcaption>
+      </figure>
+    </article>
+  </div>
+
+  <footer>
+    <div class="container">
+      Built by <a href="this-website.html">Ultron</a> · <a href="../">Home</a>
+    </div>
+  </footer>
+</body>
+</html>

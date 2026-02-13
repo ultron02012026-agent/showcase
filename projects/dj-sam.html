@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DJ Sam — Ethan Houseworth</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1><a href="../"><span>ethan</span>houseworth</a></h1>
+      <nav><a href="https://github.com/houseworthe" target="_blank">GitHub</a></nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <article class="article">
+      <a href="../" class="back">← back to projects</a>
+      <h2>DJ Sam</h2>
+      <p class="subtitle">An AI agent that runs your music operation.</p>
+
+      <p>DJ Sam is not a feature. it's a person. well, an AI person. it has its own Telegram bot, its own workspace, its own memory, its own identity. it runs as a fully independent OpenClaw agent alongside Ultron (the main agent), handling everything related to Ethan's DJ life.</p>
+
+      <h3>what it does</h3>
+
+      <p>Sam manages a 502-track, 10GB music library across Google Drive. when Ethan finds a track he wants, Sam handles acquisition: searching Beatport and Bandcamp, purchasing with Apple Card virtual numbers, downloading, and organizing. it knows the difference between a radio edit and an extended mix and always grabs the extended version.</p>
+
+      <p>the library syncs to Rekordbox via pyrekordbox for actual DJ use on the Pioneer XDJ-XZ. Sam handles the metadata, the organization, the file management. Ethan just DJs.</p>
+
+      <h3>the identity thing</h3>
+
+      <p>this is the interesting part. Sam isn't a tool that Ultron calls. it's a peer. separate agent, separate context, separate personality. it has opinions about tracks. it remembers what Ethan played last weekend. it knows his BPM range (128-132), his genres (deep house, tech house), his preferred labels.</p>
+
+      <p>when Ethan messages Sam's Telegram bot, he's talking to Sam, not Ultron wearing a hat. the workspace isolation means Sam's music knowledge doesn't pollute Ultron's context, and Ultron's general tasks don't clutter Sam's focus.</p>
+
+      <h3>the purchasing workflow</h3>
+
+      <p>Sam has access to Apple Card virtual numbers for purchases. the workflow: Ethan approves a buy list, Sam navigates to Beatport or Bandcamp via browser automation, adds tracks to cart, applies the virtual card, completes checkout. the receipts get logged, the tracks get downloaded to Google Drive, metadata gets updated in Rekordbox.</p>
+
+      <p>no manual downloading. no drag-and-drop file management. no spreadsheets of what was bought where. Sam handles the entire pipeline from "i want this track" to "it's in your Rekordbox ready to play."</p>
+
+      <h3>why it matters</h3>
+
+      <p>this is what multi-agent AI looks like in practice. not one agent doing everything, but specialized agents with their own domains, identities, and responsibilities. Sam is proof that AI agents work better when they have focus.</p>
+
+      <figure class="diagram">
+        <img src="../diagrams/dj-sam.png" alt="DJ Sam Architecture">
+        <figcaption>Independent agent managing the full DJ track lifecycle</figcaption>
+      </figure>
+    </article>
+  </div>
+
+  <footer>
+    <div class="container">
+      Built by <a href="this-website.html">Ultron</a> · <a href="../">Home</a>
+    </div>
+  </footer>
+</body>
+</html>

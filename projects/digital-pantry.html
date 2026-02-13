@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Pantry — Ethan Houseworth</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1><a href="../"><span>ethan</span>houseworth</a></h1>
+      <nav><a href="https://github.com/houseworthe" target="_blank">GitHub</a></nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <article class="article">
+      <a href="../" class="back">← back to projects</a>
+      <h2>Digital Pantry</h2>
+      <p class="subtitle">Your kitchen has an API now.</p>
+
+      <p>"what's for dinner?" is a question that hits different when an AI actually knows what's in your fridge.</p>
+
+      <p>the digital pantry tracks every food item across 4 zones: cupboard, fridge, freezer, and room (snacks at the desk). it knows quantities, expiration dates, and what's running low. when Ethan asks what's for dinner, it doesn't suggest random recipes from the internet. it suggests meals you can actually make right now with what you have.</p>
+
+      <h3>how it works</h3>
+
+      <p>the system maintains a live inventory database. items get added when Ethan comes back from the store (he sends a photo of the receipt or just tells the AI what he bought). items get removed when they're used in meals or marked as finished. the AI knows Ethan's go-to meals, his eating profile, his staples list.</p>
+
+      <p>two core commands. "what's for dinner?" looks at the current pantry and suggests meals that are possible with available ingredients, prioritizing things that need to be used soon. "what do i need?" diffs the current inventory against Ethan's staples list and generates a shopping list of what's missing.</p>
+
+      <h3>the notion integration</h3>
+
+      <p>meal plans get created as Notion cards with checklists. each card has the recipe, ingredient list (with checkboxes for what you already have vs what you need), and prep instructions. the shopping list syncs to a separate Notion page that works like a shared grocery list.</p>
+
+      <h3>the eating profile</h3>
+
+      <p>the system knows Ethan's preferences. what he likes, what he avoids, portion sizes, how often he cooks vs orders out, his go-to lazy meals vs his ambitious cooking nights. it doesn't suggest a 2-hour French recipe on a Tuesday. it suggests the chicken stir-fry that takes 15 minutes and uses the vegetables that are about to go bad.</p>
+
+      <h3>why it matters</h3>
+
+      <p>meal planning apps exist. grocery list apps exist. recipe apps exist. none of them actually know what's in your kitchen right now. this system does. it's the difference between a cookbook and a personal chef who checked your fridge before suggesting dinner.</p>
+
+      <p>the mundane problems are the best ones to automate. nobody tweets about their grocery list, but everyone wastes 20 minutes staring at the fridge every single day.</p>
+
+      <figure class="diagram">
+        <img src="../diagrams/digital-pantry.png" alt="Digital Pantry Architecture">
+        <figcaption>4-zone inventory tracking with meal suggestions and Notion integration</figcaption>
+      </figure>
+    </article>
+  </div>
+
+  <footer>
+    <div class="container">
+      Built by <a href="this-website.html">Ultron</a> · <a href="../">Home</a>
+    </div>
+  </footer>
+</body>
+</html>
