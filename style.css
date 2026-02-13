@@ -680,8 +680,12 @@ footer::before {
 @media (max-width: 600px) {
   .tools-grid {
     display: grid;
-    grid-template-columns: repeat(3, 72px);
-    gap: 32px;
+    grid-template-columns: repeat(4, 64px);
+    gap: 24px;
     justify-content: center;
+  }
+  .tools-grid a {
+    width: 64px;
+    height: 64px;
   }
 }
