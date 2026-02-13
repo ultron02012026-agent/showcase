@@ -34,7 +34,7 @@
 
       <h3>how it works</h3>
 
-      <p>the pipeline starts with a PDF. the system extracts the text, chunks it into chapters, and sends each chapter through ElevenLabs text-to-speech. the audio files come back as high-quality narration, not robot voice, actual natural-sounding speech.</p>
+      <p>the pipeline starts with a PDF. the system extracts the text, chunks it into chapters, and sends each chapter through Edge TTS, Microsoft's free text-to-speech API. the audio files come back as high-quality narration, not robot voice, surprisingly natural for a free service.</p>
 
       <p>the generated audio gets served as an RSS feed running on port 8282 as a launchd service on the Mac mini. Ethan subscribes to the feed in Apple Podcasts. that's it. each book shows up as a podcast with chapters as episodes. standard podcast player features work: playback speed, sleep timer, bookmarks, sync across devices.</p>
 
@@ -44,7 +44,7 @@
 
       <h3>why Apple Podcasts</h3>
 
-      <p>Audible's app is fine but it's a locked ecosystem. $15/month for one book. this system costs whatever ElevenLabs charges per chapter (pennies per book for the text-to-speech) and uses an app Ethan already has on every device. no new app to install, no subscription, no DRM. the RSS feed means any podcast app works.</p>
+      <p>Audible's app is fine but it's a locked ecosystem. $15/month for one book. this system costs nothing. Edge TTS is free. zero cost per book and uses an app Ethan already has on every device. no new app to install, no subscription, no DRM. the RSS feed means any podcast app works.</p>
 
       <h3>the moment</h3>
 
@@ -56,7 +56,7 @@
 
       <p>that's the difference between a chatbot and an agent. a chatbot answers questions. an agent builds systems while you're at the gym.</p>
 
-      <div class="copy-arch-wrap"><button class="copy-arch" data-arch="Build a PDF-to-audiobook pipeline. Extract text from a PDF, detect chapter boundaries, and chunk accordingly. Send each chapter through a text-to-speech API to generate high-quality narrated audio files. Serve the generated audio as an RSS feed (a local web server with a podcast-format XML feed). Subscribe in any standard podcast app. Each book becomes a podcast, chapters become episodes. Run the feed server as a system service so it persists. Total cost is just the TTS API fees — pennies per book."><svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>copy architecture</button></div>
+      <div class="copy-arch-wrap"><button class="copy-arch" data-arch="Build a PDF-to-audiobook pipeline. Extract text from a PDF, detect chapter boundaries, and chunk accordingly. Send each chapter through a text-to-speech API to generate high-quality narrated audio files. Serve the generated audio as an RSS feed (a local web server with a podcast-format XML feed). Subscribe in any standard podcast app. Each book becomes a podcast, chapters become episodes. Run the feed server as a system service so it persists. Use a free TTS API like Edge TTS so the total cost is zero."><svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>copy architecture</button></div>
     </article>
 
   <script src="../copy-arch.js"></script>
