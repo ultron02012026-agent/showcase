@@ -454,7 +454,7 @@ footer::before {
   .article .diagram { margin: 32px 0; }
 }
 
-.signature-question { color: var(--accent-1); font-weight: 700; }
+.signature-question, .signature-question strong { color: var(--accent-1) !important; font-weight: 700; }
 
 /* ── Copy Architecture Button ── */
 .copy-arch-wrap {
