@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OpenClaw Review — Ethan Houseworth</title>
+  <link rel="stylesheet" href="../style.css?v=10">
+</head>
+<body>
+  <header id="main-header">
+    <div class="header-inner">
+      <h1><a href="../"><span>ethan</span>houseworth</a></h1>
+      <nav>
+        <a href="https://github.com/houseworthe" target="_blank">GitHub</a><a href="https://linkedin.com/in/ethanhouseworth" target="_blank">LinkedIn</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="article-hero">
+    <a href="../" class="back">← back to projects</a>
+  </section>
+
+  <article class="article">
+      <h2>My Highly Anticipated Review of OpenClaw After a Week of Use</h2>
+      <p class="subtitle">this is bigger than ChatGPT. not because it's smarter.</p>
+
+      <p>within the first hour of setting up OpenClaw, i had my first "feel the AGI" moment.</p>
+
+      <p>i needed an API key from Govee to control my smart lights. Govee had emailed it to me, so i forwarded that email to my agent (his name is Ultron) on Telegram. i texted him "check your email." thirty seconds later, the lights in my room started flickering.</p>
+
+      <p>my friend and i just looked at each other. all i did was forward an email.</p>
+
+      <p>that moment set the tone for the entire week. i want to share what i learned, because i think this represents a fundamental shift in how we interact with AI. not an incremental improvement, but a different category entirely.</p>
+
+      <h3>what is OpenClaw</h3>
+
+      <p>OpenClaw is an open-source, self-hosted AI agent created by Peter Steinberger. it went massively viral late last month. you install it on your own hardware (i'm running it on a Mac mini), and it connects to messaging platforms you already use: Telegram, Google Chat, WhatsApp, iMessage, Slack, Discord.</p>
+
+      <p>you talk to it like a coworker over text, and it goes and does things. shell commands, file management, API calls, hardware control, browser automation, background tasks on a schedule. it's not a chatbot. it's an autonomous agent with hands.</p>
+
+      <p>one of the speakers on the Every.to OpenClaw bootcamp said this is bigger than ChatGPT. after a week with it, i agree — not because it's smarter, but because it changes the relationship from "i sit down and prompt it" to "it's always running and i just text it when i need something."</p>
+
+      <h3>the four things that make this fundamentally different</h3>
+
+      <p><strong>1. harness.</strong> OpenClaw is a multi-purpose, model-agnostic harness. it's not tied to one AI provider or one use case. it's the frame that everything else plugs into — tools, integrations, models, workflows. you configure it once and it just runs.</p>
+
+      <p><strong>2. model.</strong> i'm running Claude Opus. the quality of reasoning matters a lot when your agent is making real decisions — reading emails, writing code, controlling hardware. the model is the brain, and a good brain makes the whole system work.</p>
+
+      <p><strong>3. UX.</strong> this is the big one. you text it from your phone. that's it. no special app, no IDE, no prompt engineering interface. you're laying on the couch and you text "turn the lights blue" or "what's on my calendar tomorrow" and it just happens. the UX is passive. you don't sit down to use AI — AI is just part of your life.</p>
+
+      <p><strong>4. integration.</strong> the agent runs on your machine, with your accounts, your API keys, your file system. it's not sandboxed in some cloud environment with no context. it has deep access to your actual digital life, which means it can actually do useful things.</p>
+
+      <h3>how the autonomy actually works</h3>
+
+      <p>cron jobs. the agent can schedule tasks to run on its own. check email every 30 minutes. update a project status daily. run a backup weekly. you set it up once and it just does its thing in the background.</p>
+
+      <p>agent isolation is key. heavy tasks get spun off into sub-agents with their own context windows. the main agent stays sharp because it's not drowning in 200k tokens of code review. it delegates, gets back a summary, and moves on. think of it like an engineering manager — doesn't write the code, but knows what's happening and makes the calls.</p>
+
+      <h3>feel the AGI moments</h3>
+
+      <p>the Govee lights were just the beginning.</p>
+
+      <p>i asked Ultron to find a contact's email. he searched my contacts, didn't find it, then searched my email history and found an old thread with the guy. pulled the email from the thread, added it to my contacts, and texted me back the address. i didn't tell him to check email — he figured out the next step on his own.</p>
+
+      <p>at a party, i was showing friends what the agent could do. had it control the lights, take a photo with my phone camera, describe who was in the room, and play music — all over Telegram. people were losing their minds. it felt like a magic trick, but it was just an agent with the right integrations.</p>
+
+      <h3>security</h3>
+
+      <p>the agent has access to your machine. that's powerful and scary. start small. don't give it your bank login on day one. build trust incrementally. OpenClaw has access controls — use them. the community is good about sharing what's safe and what's not.</p>
+
+      <p>the honest truth: if you're not comfortable with an AI having shell access to your computer, this isn't for you yet. but if you understand the tradeoffs, the upside is massive.</p>
+
+      <h3>recommendation</h3>
+
+      <p>spend a couple hours with the <a href="https://every.to" target="_blank">Every.to</a> OpenClaw bootcamp. it walks you through setup and the first few use cases. then try it yourself. you'll know within the first hour whether this clicks for you.</p>
+
+      <p>for me, it clicked in thirty seconds. the lights flickered, and i knew everything was about to change.</p>
+    </article>
+
+  <footer>
+    <div class="header-inner">
+      Built by Ethan + <a href="this-website.html">Ultron</a> · Human-AI collaboration · <a href="../">Home</a>
+    </div>
+  </footer>
+</html>
