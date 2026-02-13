@@ -725,6 +725,16 @@ footer::before {
   margin: 8px 0 0;
   flex-wrap: wrap;
 }
+.share-bar-top {
+  gap: 6px;
+  margin: 4px 0 0;
+}
+.share-bar-top button,
+.share-bar-top a {
+  padding: 4px 10px !important;
+  font-size: 11px !important;
+  border-width: 1px !important;
+}
 .share-bar button,
 .share-bar a {
   display: inline-flex;
