@@ -16,9 +16,17 @@
     </div>
   </header>
 
-  <div class="container">
-    <article class="article">
-      <a href="../" class="back">← back to projects</a>
+    <section class="article-hero">
+    <a href="../" class="back">← back to projects</a>
+    <figure>
+      <div class="diagram-wrap">
+        <img src="../diagrams/claude-royale.png" alt="Claude Royale Architecture">
+      </div>
+      <figcaption>Multi-agent architecture: Commander spawns 3 parallel Players per match</figcaption>
+    </figure>
+  </section>
+
+  <article class="article">
       <h2>Claude Royale</h2>
       <p class="subtitle">AI playing Clash Royale. For real. On Twitch.</p>
 
@@ -49,13 +57,7 @@
       <h3>what's next</h3>
 
       <p>inference speed is the bottleneck. as AI gets faster, you need fewer parallel agents. at 1-second latency, a single agent could play competitively. Claude Royale is a benchmark for something bigger: how fast can AI react to the real world?</p>
-
-      <figure class="diagram">
-        <img src="../diagrams/claude-royale.png" alt="Claude Royale Architecture">
-        <figcaption>Multi-agent architecture: Commander spawns 3 parallel Players per match</figcaption>
-      </figure>
     </article>
-  </div>
 
   <footer>
     <div class="container">

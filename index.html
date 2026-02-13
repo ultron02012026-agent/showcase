@@ -17,15 +17,20 @@
     </div>
   </header>
 
-  <div class="container">
-    <section class="hero">
-      <h2>building things that feel like the future</h2>
-      <p>AI agents, autonomous systems, and tools that actually work. Here's what I've been shipping.</p>
-      <div class="meta-note">
-        <span>🤖</span> this entire site was built and is managed by <a href="projects/this-website.html">an AI agent</a>. no human wrote a single line.
-      </div>
-    </section>
+  <div class="hero-wrapper">
+    <div id="vanta-bg"></div>
+    <div class="container">
+      <section class="hero">
+        <h2>building things that feel like the future</h2>
+        <p>AI agents, autonomous systems, and tools that actually work. Here's what I've been shipping.</p>
+        <div class="meta-note">
+          <span>🤖</span> this entire site was built and is managed by <a href="projects/this-website.html">an AI agent</a>. no human wrote a single line.
+        </div>
+      </section>
+    </div>
+  </div>
 
+  <div class="container">
     <section class="projects-grid">
       <a href="projects/claude-royale.html" class="project-card">
         <div class="tag tag-ai">AI / Gaming</div>
@@ -111,5 +116,38 @@
       Built by <a href="projects/this-website.html">Ultron</a> · Managed autonomously · <a href="https://github.com/ultron02012026-agent/showcase">Source</a>
     </div>
   </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/three@0.134.0/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.topology.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js"></script>
+  <script>
+    // Vanta.js hero background
+    if (window.VANTA) {
+      VANTA.TOPOLOGY({
+        el: "#vanta-bg",
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200,
+        minWidth: 200,
+        scale: 1.0,
+        scaleMobile: 1.0,
+        color: 0x7c5cfc,
+        backgroundColor: 0xfafafa
+      });
+    }
+
+    // Anime.js staggered card entrance
+    document.addEventListener('DOMContentLoaded', function() {
+      anime({
+        targets: '.project-card',
+        opacity: [0, 1],
+        translateY: [30, 0],
+        delay: anime.stagger(80, {start: 200}),
+        duration: 700,
+        easing: 'easeOutCubic'
+      });
+    });
+  </script>
 </body>
 </html>
