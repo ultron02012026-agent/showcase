@@ -183,19 +183,25 @@ header nav a:hover { color: var(--text-secondary); }
 
 .project-card {
   background: transparent;
-  padding: 28px 0;
+  padding: 28px 0 28px 20px;
   transition: transform 0.2s ease;
   display: flex;
   flex-direction: column;
   cursor: pointer;
   position: relative;
   border: none;
-  border-left: 3px solid transparent;
-  border-image: linear-gradient(180deg, var(--accent-1), var(--accent-2), var(--accent-3)) 1;
-  padding-left: 20px;
 }
 
-.project-card::before { display: none; }
+.project-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  border-radius: 3px;
+  background: linear-gradient(180deg, var(--accent-1), var(--accent-2), var(--accent-3));
+}
 
 .project-card:hover {
   transform: translateX(6px);
