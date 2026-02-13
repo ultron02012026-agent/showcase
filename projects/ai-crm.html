@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Death of the Spreadsheet, Ethan Houseworth</title>
+  <meta name="description" content="How AI agents replace CRMs and Google Sheets with SQLite databases and personalized outreach at scale.">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="stylesheet" href="../style.css?v=12">
+</head>
+<body>
+  <header id="main-header">
+    <div class="header-inner">
+      <h1><a href="../"><span>ethan</span>houseworth</a></h1>
+      <nav><a href="https://github.com/houseworthe" target="_blank">GitHub</a><a href="https://www.linkedin.com/in/ethan-houseworth/" target="_blank">LinkedIn</a></nav>
+    </div>
+  </header>
+
+  <section class="article-hero">
+    <a href="../" class="back">← back to projects</a>
+  </section>
+
+  <article class="article">
+    <h2>The Death of the Spreadsheet</h2>
+    <div class="article-meta">
+      <span class="date">Feb 2026</span>
+      <span class="tag tag-ai">AI / Essay</span>
+    </div>
+    <p class="subtitle">CRMs are a UI for data you could just talk to.</p>
+
+    <p>every startup pays $50-200/seat/month for a CRM. every freelancer has a Google Sheet with color-coded columns. every small business has someone whose whole job is updating the spreadsheet.</p>
+
+    <p>what if you just talked to your data instead?</p>
+
+    <h3>the old way</h3>
+
+    <p>you want to do cold outreach to 100 artists. the traditional workflow: open Spotify, manually find artists in your genre, copy their names into a spreadsheet, add columns for follower count and tier, google their Instagram handles, write 100 personalized DMs by hand (or worse, send the same template to everyone), track who responded in another column, follow up manually.</p>
+
+    <p>that's a full day of work. minimum. and the spreadsheet is stale the moment you close it.</p>
+
+    <h3>what we actually built</h3>
+
+    <p>for <a href="https://spinfluenced.com" target="_blank">Spinfluenced</a>, my feedback marketplace for music producers, i needed to find artists and producers to recruit. hundreds of them, across specific genres, with personalized outreach that doesn't feel like spam.</p>
+
+    <p>the agent pulls directly from Spotify's API. every artist i've ever liked, filtered by genre (house, tech house, deep house, minimal), scored by follower count, popularity, and how many of their tracks are in my library. it auto-tiers them: Weekend Warriors (1K-100K followers, most accessible), Rising Stars, Touring Pros, and Whales.</p>
+
+    <p>the output is a SQLite database. not a spreadsheet. a database the agent can query conversationally. "show me the top 20 Weekend Warriors in tech house that i haven't contacted yet." instant. no scrolling, no filters, no pivot tables.</p>
+
+    <p>then the LLM enricher runs. it takes each artist's data, their genres, their tracks i actually listen to, their tier, and generates personalized outreach messages. not mail merge. actually personalized. "hey, been listening to your track on [specific playlist] for weeks, the groove on that bassline is insane" type messages. because the AI has the context of which specific tracks are in my library.</p>
+
+    <h3>the health system: same pattern, different domain</h3>
+
+    <p>i applied the exact same abstraction to my personal health data. a Garmin watch streams daily metrics into a SQLite database: steps, heart rate, sleep stages, stress, body battery, calories. a separate database tracks every grocery purchase: store, items, quantities.</p>
+
+    <p>"what's my average resting heart rate this week?" the agent queries the database. "what did i buy at Trader Joe's last Tuesday?" same thing. "i burned 600 calories today, what should i make for dinner with what's in the fridge?" it cross-references the health database with the pantry inventory and suggests a meal.</p>
+
+    <p>no app. no dashboard. no subscription. just a database and a conversation.</p>
+
+    <h3>the abstraction layer</h3>
+
+    <p>the pattern is always the same:</p>
+
+    <p><strong>1. structured data in SQLite.</strong> not a spreadsheet. a real database that supports queries, joins, and aggregations. SQLite is free, runs locally, and the agent can read and write to it natively.</p>
+
+    <p><strong>2. an AI agent as the interface.</strong> you don't open a dashboard. you text the agent. it translates natural language into SQL, runs the query, and responds conversationally. the UI is a chat window you already have open.</p>
+
+    <p><strong>3. LLM enrichment on top.</strong> the agent doesn't just retrieve data, it reasons about it. generate personalized messages from contact data. suggest meals from pantry inventory. identify patterns in health metrics. the database is the memory, the LLM is the brain.</p>
+
+    <p>this replaces:</p>
+    <p>CRMs like HubSpot and Salesforce. Google Sheets with 47 tabs. Notion databases you stopped updating. health apps with dashboards you never check. meal planning apps that don't know what's in your kitchen.</p>
+
+    <h3>why this is faster</h3>
+
+    <p>a CRM makes you learn its UI, maintain its data, and work within its constraints. an AI agent with a database does whatever you ask in plain English. need a new field? just start mentioning it. need a report? describe what you want. need to change the workflow? just tell it.</p>
+
+    <p>the Spinfluenced outreach system went from idea to 138 scored, tiered, enriched artist targets with personalized DMs in a single afternoon. no CRM setup, no template builder, no mail merge. just "find me artists to reach out to" and let the agent work.</p>
+
+    <p class="signature-question"><strong>how could AI do this?</strong></p>
+
+    <div class="copy-arch-wrap"><button class="copy-arch" data-arch="Replace your CRM or Google Sheet with a SQLite database and an AI agent. Pull data from APIs (Spotify, Garmin, whatever your domain is) into structured SQLite tables. The agent queries the database conversationally, translating natural language into SQL. Layer LLM enrichment on top: generate personalized outreach messages from contact data, suggest actions from health metrics, cross-reference databases for insights. The UI is just a chat window. No dashboard, no subscription, no manual data entry. What domain would you apply this to? What data sources would feed the database?"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>copy architecture</button></div>
+    <div class="article-newsletter"><p>monthly updates on new projects and experiments.</p><form class="newsletter-pill" action="https://buttondown.com/api/emails/embed-subscribe/houseworth" method="post" target="popupwindow" onsubmit="window.open("https://buttondown.com/houseworth","popupwindow");this.style.display="none";this.nextElementSibling.style.display="block""><input type="email" name="email" id="nl-email" placeholder="your email" required><input type="hidden" value="1" name="embed"><button type="submit"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button></form><p class="newsletter-thanks" style="display:none">thanks! you're on the list.</p></div>
+  </article>
+
+  <script src="../copy-arch.js"></script>
+  <footer>
+    <div class="header-inner">
+      Built by Ultron · <a href="../">Home</a>
+    </div>
+  </footer>
+</body>
+</html>
