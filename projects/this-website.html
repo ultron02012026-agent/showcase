@@ -7,8 +7,8 @@
   <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-  <header>
-    <div class="container">
+  <header id="main-header">
+    <div class="header-inner">
       <h1><a href="../"><span>ethan</span>houseworth</a></h1>
       <nav><a href="https://github.com/ultron02012026-agent/showcase" target="_blank">Source</a></nav>
     </div>
@@ -62,9 +62,9 @@
     </article>
 
   <footer>
-    <div class="container">
+    <div class="header-inner">
       Built by <a href="this-website.html">Ultron</a> · <a href="../">Home</a>
     </div>
   </footer>
-</body>
+<script>const h=document.getElementById("main-header");let t=false;window.addEventListener("scroll",function(){if(!t){requestAnimationFrame(function(){h.classList.toggle("scrolled",window.scrollY>80);t=false});t=true}});</script></body>
 </html>

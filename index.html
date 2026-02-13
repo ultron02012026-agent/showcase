@@ -7,8 +7,8 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <div class="container">
+  <header id="main-header">
+    <div class="header-inner">
       <h1><span>ethan</span>houseworth</h1>
       <nav>
         <a href="https://github.com/houseworthe" target="_blank">GitHub</a>
@@ -131,6 +131,23 @@
         backgroundColor: 0xfafafa
       });
     }
+
+    // Pill nav on scroll
+    const header = document.getElementById('main-header');
+    let ticking = false;
+    window.addEventListener('scroll', function() {
+      if (!ticking) {
+        requestAnimationFrame(function() {
+          if (window.scrollY > 80) {
+            header.classList.add('scrolled');
+          } else {
+            header.classList.remove('scrolled');
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
 
     // Anime.js staggered card entrance
     document.addEventListener('DOMContentLoaded', function() {

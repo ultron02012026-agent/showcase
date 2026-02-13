@@ -38,25 +38,54 @@ a:hover { color: var(--cyan); }
 
 /* ── Header ── */
 header {
-  border-bottom: 1px solid var(--border);
-  padding: 18px 0;
-  backdrop-filter: blur(20px);
-  background: rgba(255, 255, 255, 0.85);
   position: sticky;
   top: 0;
   z-index: 100;
+  padding: 14px 0;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-header .container {
+header .header-inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 6px 32px;
+  border-radius: 0;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  border: 1px solid transparent;
+  border-bottom-color: var(--border);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+header.scrolled {
+  padding: 10px 0;
+}
+
+header.scrolled .header-inner {
+  max-width: 280px;
+  padding: 8px 24px;
+  border-radius: 100px;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  justify-content: center;
+}
+
+header.scrolled nav {
+  opacity: 0;
+  width: 0;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
 }
 
 header h1 {
   font-family: 'Playfair Display', serif;
   font-size: 18px;
   font-weight: 600;
+  white-space: nowrap;
 }
 
 header h1 a { color: var(--text); }
@@ -68,7 +97,11 @@ header h1 span {
   background-clip: text;
 }
 
-header nav { display: flex; gap: 24px; }
+header nav {
+  display: flex;
+  gap: 24px;
+  transition: opacity 0.3s, width 0.4s;
+}
 header nav a {
   color: var(--text-dim);
   font-size: 14px;
