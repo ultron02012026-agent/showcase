@@ -424,13 +424,10 @@ footer::before {
   }
 
   .project-card p {
-    display: none;
+    display: block;
   }
   .project-card .card-subtitle {
-    display: block;
-    font-size: 13px;
-    color: var(--text-dim);
-    line-height: 1.5;
+    display: none;
   }
 
   .article-hero { padding: 32px 20px 0; }
@@ -637,7 +634,7 @@ footer::before {
   color: var(--accent-1);
 }
 
-/* Hide card subtitles on desktop */
+/* Card subtitles not used */
 .card-subtitle {
   display: none;
 }
