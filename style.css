@@ -641,7 +641,8 @@ footer::before {
 
 /* Favorite Tools Section */
 .tools-section {
-  padding: 24px 0;
+  padding: 0 0 16px;
+  margin: -36px 0 -28px;
   text-align: center;
 }
 .tools-section h3 {
