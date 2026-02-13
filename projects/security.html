@@ -36,9 +36,9 @@
 
       <h3>access control: start with nothing, earn everything</h3>
 
-      <p>the agent didn't start with access to everything. it started with lights and weather. that's it.</p>
+      <p>the agent had email and GitHub from day one, those are low risk when it's the agent's own accounts, not mine. purchasing came later, and even then it's just an Apple Cash virtual card with $20 on it. my real bank account is completely isolated.</p>
 
-      <p>we added integrations one at a time. lights first. then smart home stuff. then GitHub. then email. then purchasing. each one earned. each one tested before the next. low-risk stuff first, sensitive stuff later. by the time the agent got access to purchasing, we'd already been working together for weeks. i understood how it handled edge cases. it understood my preferences and boundaries.</p>
+      <p>the progression was natural. lights and smart home first, then integrations that touch external services, then money. but the key isn't the order, it's the isolation. every capability is scoped so the worst case scenario is small.</p>
 
       <p>and every external action, sending an email, posting a tweet, making a purchase, requires either my explicit approval or clear standing instructions i've set in advance. the agent doesn't freelance with my identity.</p>
 
@@ -46,7 +46,7 @@
 
       <p>this is the most important structural decision we made. Ultron cannot read my email. Ultron cannot push to my GitHub. he has his own email (his own Gmail), his own GitHub account, his own credentials. he operates as a separate identity, not as me with my passwords.</p>
 
-      <p>where he needs access to my stuff, it's through controlled API keys and scoped permissions. he can read my calendar because i gave him an API key. he can't delete my calendar. he can send emails from his own address, not from mine. the principle: give the agent its own accounts and give it controlled access into yours via API keys. never hand over your login.</p>
+      <p>where he needs access to my stuff, it's through controlled API keys and scoped permissions. he has his own calendar, not access to mine. he can send emails from his own address, not from mine. the principle: give the agent its own accounts and give it controlled access into yours via API keys. never hand over your login.</p>
 
       <p>if you're setting up an agent, this is the first thing to get right. everything else is defense in depth. this is the foundation.</p>
 
