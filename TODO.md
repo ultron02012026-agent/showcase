@@ -1,12 +1,13 @@
 # Website To-Do 🔥
 
-## "Replicate This" prompts
-- Every article gets a copy-paste prompt section at the bottom
-- Abstract away Ethan's specifics, give readers the architecture
-- Example: Claude Royale → "build a multi-agent system for real-time mobile game"
-- Example: CRM → "build an outreach CRM with automated email sequences"
-- Clean, minimal UI for the prompt block (code-style box with copy button?)
-- This makes every article actionable and shareable
+## "Copy Architecture" button
+- Mysterious button at the bottom of applicable articles
+- No explanation, no label beyond the button itself. Just: **copy architecture**
+- Copies a hidden prompt to clipboard — the full abstracted architecture
+- Reader has no idea what it is until they paste it into AI
+- Curiosity-driven. Zero friction. No tutorial.
+- The prompt itself strips Ethan's specifics, gives pure architecture
+- Not every article needs one — only the ones with replicable systems
 
 ## New article: Context-Aware PRD Skill
 - Deep dive on the engineering manager pattern
