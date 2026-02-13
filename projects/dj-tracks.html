@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DJ Track Acquisition — Ethan Houseworth</title>
+  <title>DJ Track Acquisition, Ethan Houseworth</title>
+  <meta name="description" content="DJ Track Acquisition, automated pipeline from Spotify discovery to Rekordbox-ready tracks.">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="stylesheet" href="../style.css?v=10">
 </head>
 <body>
@@ -51,11 +53,15 @@
       <h3>why it matters</h3>
 
       <p>DJs spend a surprising amount of time on track management. finding, buying, downloading, tagging, organizing, syncing. it's the unglamorous backend of every DJ set. automating it means more time actually mixing and less time clicking through Beatport checkout flows.</p>
+
+      <button class="copy-arch" data-arch="Build an automated content acquisition pipeline. The user provides a list of items (tracks, assets, files) from a discovery platform. The system searches multiple source platforms in priority order, checking for free options first, then paid. It uses browser automation since most platforms lack cart/purchase APIs. Fuzzy matching handles naming differences across platforms, flagging uncertain matches for human review. Free items download automatically; paid items queue for approval. After acquisition, items flow through an organizing pipeline: download, metadata tagging, sync to the production tool.">copy architecture</button>
     </article>
 
+  <script src="../copy-arch.js"></script>
   <footer>
     <div class="header-inner">
       Built by <a href="this-website.html">Ultron</a> · <a href="../">Home</a>
     </div>
   </footer>
+</body>
 </html>

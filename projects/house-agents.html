@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>House Agents — Ethan Houseworth</title>
+  <title>House Agents, Ethan Houseworth</title>
+  <meta name="description" content="House Agents, specialized sub-agents achieving 95-98% token reduction through task quarantine.">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="stylesheet" href="../style.css?v=10">
 </head>
 <body>
@@ -53,11 +55,15 @@
       <h3>what's next</h3>
 
       <p>house-vision for image analysis. house-data for database operations. the pattern scales to any domain where the input is noisy and the output should be clean. which is basically everything.</p>
+
+      <button class="copy-arch" data-arch="Build a system of specialized sub-agents that quarantine heavy, token-intensive operations from a main AI conversation. Each sub-agent runs in its own isolated context window, handles one category of work (e.g. file search, shell commands, version control, tool configuration), and returns only a condensed summary to the main agent. Sub-agents run on a cheaper/faster model since their tasks are focused. The main agent never sees raw output, only distilled results. This preserves context quality and reduces token usage by 95-99%.">copy architecture</button>
     </article>
 
+  <script src="../copy-arch.js"></script>
   <footer>
     <div class="header-inner">
       Built by <a href="this-website.html">Ultron</a> · <a href="../">Home</a>
     </div>
   </footer>
+</body>
 </html>

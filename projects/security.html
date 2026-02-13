@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Security Measures I Take to Use OpenClaw Safely — Ethan Houseworth</title>
+  <title>Security Measures I Take to Use OpenClaw Safely, Ethan Houseworth</title>
+  <meta name="description" content="Security measures for safely running an AI agent with access to email, GitHub, and smart home.">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="stylesheet" href="../style.css?v=10">
 </head>
 <body>
@@ -24,7 +26,7 @@
       <h2>Security Measures I Take to Use OpenClaw Safely</h2>
       <p class="subtitle">locking down an AI agent that has access to your life</p>
 
-      <p>my AI agent can read my email, push to my GitHub, control my lights, and buy things with my money. so yeah — security matters.</p>
+      <p>my AI agent can read my email, push to my GitHub, control my lights, and buy things with my money. so yeah, security matters.</p>
 
       <p>this isn't a theoretical framework. it's the actual stack running right now on the Mac mini in my apartment. every layer is real, every tool is in use. here's how we lock it down.</p>
 
@@ -32,7 +34,7 @@
 
       <p>i live in an apartment with shared WiFi. dozens of devices on the same network, none of them mine. running an AI agent on that felt like leaving my front door open.</p>
 
-      <p>so i got a GL-MT3000 travel router and set it up in repeater mode. it connects to the building WiFi as a client, then creates its own private network on top. every device i own — the Mac mini, my phone, the rover — sits behind its own firewall instead of raw on building WiFi.</p>
+      <p>so i got a GL-MT3000 travel router and set it up in repeater mode. it connects to the building WiFi as a client, then creates its own private network on top. every device i own, the Mac mini, my phone, the rover, sits behind its own firewall instead of raw on building WiFi.</p>
 
       <p>AdGuard Home runs on the router for network-wide ad and tracker blocking. DNS queries go through Quad9, which blocks known malware domains at the DNS level before anything even reaches the machine. DNS over TLS encrypts those queries so the building network can't snoop on what i'm resolving.</p>
 
@@ -42,13 +44,13 @@
 
       <p>the Mac mini is the brain. if someone gets into it, they get everything. so the defaults stay on and the extras get turned up:</p>
 
-      <p><strong>FileVault</strong> — full disk encryption. if someone physically steals the machine, the drive is unreadable without the password. this is just ON, no reason it shouldn't be.</p>
+      <p><strong>FileVault</strong>, full disk encryption. if someone physically steals the machine, the drive is unreadable without the password. this is just ON, no reason it shouldn't be.</p>
 
-      <p><strong>macOS Firewall + Stealth Mode</strong> — the firewall is obvious. stealth mode means the machine doesn't respond to pings or port probes. it's invisible on the network. someone scanning the building WiFi won't even know it exists.</p>
+      <p><strong>macOS Firewall + Stealth Mode</strong>, the firewall is obvious. stealth mode means the machine doesn't respond to pings or port probes. it's invisible on the network. someone scanning the building WiFi won't even know it exists.</p>
 
-      <p><strong>System Integrity Protection (SIP)</strong> — prevents even root from modifying protected system files. some people disable this for development. don't.</p>
+      <p><strong>System Integrity Protection (SIP)</strong>, prevents even root from modifying protected system files. some people disable this for development. don't.</p>
 
-      <p><strong>Gatekeeper</strong> — only runs signed, verified software. another one that's easy to leave on and dumb to turn off.</p>
+      <p><strong>Gatekeeper</strong>, only runs signed, verified software. another one that's easy to leave on and dumb to turn off.</p>
 
       <p>none of this is exotic. it's all built into macOS. you just have to not disable it.</p>
 
@@ -60,9 +62,9 @@
 
       <h3>credential management</h3>
 
-      <p>no passwords in plaintext files. ever. every credential the agent uses — Garmin, Beatport, Bandcamp, router admin passwords — lives in macOS Keychain. the agent accesses them programmatically, they never sit in a config file or environment variable.</p>
+      <p>no passwords in plaintext files. ever. every credential the agent uses, Garmin, Beatport, Bandcamp, router admin passwords, lives in macOS Keychain. the agent accesses them programmatically, they never sit in a config file or environment variable.</p>
 
-      <p>for purchases, the agent uses Apple Card virtual numbers. every transaction gets a unique card number with a rotating CVV. it's basically 2FA for every purchase — even if a number leaks, it's useless for the next transaction. the agent buys DJ tracks on Beatport and Bandcamp this way. no stored card numbers, no reusable credentials.</p>
+      <p>for purchases, the agent uses Apple Card virtual numbers. every transaction gets a unique card number with a rotating CVV. it's basically 2FA for every purchase, even if a number leaks, it's useless for the next transaction. the agent buys DJ tracks on Beatport and Bandcamp this way. no stored card numbers, no reusable credentials.</p>
 
       <h3>agent security rules</h3>
 
@@ -86,7 +88,7 @@
 
       <p>low-risk stuff first, sensitive stuff later. by the time the agent got access to email and money, we'd already been working together for weeks. i understood how it handled edge cases. it understood my preferences and boundaries.</p>
 
-      <p>and every external action — sending an email, posting a tweet, making a purchase — requires either my explicit approval or clear standing instructions i've set in advance. the agent doesn't freelance with my identity.</p>
+      <p>and every external action, sending an email, posting a tweet, making a purchase, requires either my explicit approval or clear standing instructions i've set in advance. the agent doesn't freelance with my identity.</p>
 
       <h3>the philosophy</h3>
 
@@ -102,4 +104,5 @@
       Built by <a href="this-website.html">Ultron</a> · <a href="../">Home</a>
     </div>
   </footer>
+</body>
 </html>

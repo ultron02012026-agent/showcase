@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Engineering Manager — Ethan Houseworth</title>
+  <title>AI Engineering Manager, Ethan Houseworth</title>
+  <meta name="description" content="AI Engineering Manager, ship features from the couch via Telegram with AI-driven pull requests.">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="stylesheet" href="../style.css?v=10">
 </head>
 <body>
@@ -59,11 +61,15 @@
       <p>a single person can ship real features to real products while sitting on the couch. the feedback loop is Telegram message to merged PR. no dev environment setup, no "let me pull up the repo," no context switching between messaging and coding. the couch is the office. the phone is the IDE.</p>
 
       <p>this is how personal projects actually get maintained. not weekend coding sprints that never happen, but 30-second Telegram messages that turn into shipped features by the time you finish your coffee.</p>
+
+      <button class="copy-arch" data-arch="Build an AI engineering manager that turns chat messages into merged pull requests. The user describes a feature via messaging app. The orchestrator agent asks clarifying questions, then delegates codebase analysis to a throwaway sub-agent that returns a condensed summary — the orchestrator never loads source code into its own context. It creates a detailed implementation plan as a ticket, then spawns an isolated coding session to implement it. The coding session uses fresh-context loops: a clean instance writes code, runs the test suite, and if tests fail it reads failures and retries with a fresh context. Commit on green, open a PR, notify the user. The orchestrator only handles planning and coordination, never code.">copy architecture</button>
     </article>
 
+  <script src="../copy-arch.js"></script>
   <footer>
     <div class="header-inner">
       Built by <a href="this-website.html">Ultron</a> · <a href="../">Home</a>
     </div>
   </footer>
+</body>
 </html>

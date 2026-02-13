@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Library — Ethan Houseworth</title>
+  <title>The Library, Ethan Houseworth</title>
+  <meta name="description" content="The Library, a complete audiobook system that replaced Audible, built by AI in 30 minutes.">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="stylesheet" href="../style.css?v=10">
 </head>
 <body>
@@ -51,11 +53,15 @@
       <p>this is the part that matters. Ultron (the AI agent) identified the need, designed the pipeline, wrote the code, set up the launchd service, generated the first book, and had the RSS feed live before Ethan finished his workout. no prompting, no back-and-forth, no "can you also add..." iterations. the agent understood the goal and shipped it.</p>
 
       <p>that's the difference between a chatbot and an agent. a chatbot answers questions. an agent builds systems while you're at the gym.</p>
+
+      <button class="copy-arch" data-arch="Build a PDF-to-audiobook pipeline. Extract text from a PDF, detect chapter boundaries, and chunk accordingly. Send each chapter through a text-to-speech API to generate high-quality narrated audio files. Serve the generated audio as an RSS feed (a local web server with a podcast-format XML feed). Subscribe in any standard podcast app. Each book becomes a podcast, chapters become episodes. Run the feed server as a system service so it persists. Total cost is just the TTS API fees — pennies per book.">copy architecture</button>
     </article>
 
+  <script src="../copy-arch.js"></script>
   <footer>
     <div class="header-inner">
       Built by <a href="this-website.html">Ultron</a> · <a href="../">Home</a>
     </div>
   </footer>
+</body>
 </html>

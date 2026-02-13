@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Claude Royale — Ethan Houseworth</title>
+  <title>Claude Royale, Ethan Houseworth</title>
+  <meta name="description" content="Claude Royale, an AI agent playing Clash Royale live on Twitch, reaching 1,000 trophies.">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="stylesheet" href="../style.css?v=10">
 </head>
 <body>
@@ -57,11 +59,15 @@
       <h3>what's next</h3>
 
       <p>inference speed is the bottleneck. as AI gets faster, you need fewer parallel agents. at 1-second latency, a single agent could play competitively. Claude Royale is a benchmark for something bigger: how fast can AI react to the real world?</p>
+
+      <button class="copy-arch" data-arch="Build a multi-agent system that plays a real-time game via screen capture and touch/click input. A commander agent handles menus and match lifecycle. When a match starts, it spawns N player agents in parallel, each running the loop: screenshot → vision model → decision → input action. Parallel agents stagger naturally so the effective response rate is total_latency / N. Add an auto-opener that plays the first moves on a timer to establish tempo before vision kicks in. Validate outcomes by checking actual score deltas, not on-screen text which can be misleading.">copy architecture</button>
     </article>
 
+  <script src="../copy-arch.js"></script>
   <footer>
     <div class="header-inner">
       Built by <a href="this-website.html">Ultron</a> · <a href="../">Home</a>
     </div>
   </footer>
+</body>
 </html>
