@@ -6,7 +6,7 @@
   <title>AI Engineering Manager, Ethan Houseworth</title>
   <meta name="description" content="AI Engineering Manager, ship features from the couch via Telegram with AI-driven pull requests.">
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-  <link rel="stylesheet" href="../style.css?v=10">
+  <link rel="stylesheet" href="../style.css?v=11">
 </head>
 <body>
   <header id="main-header">
@@ -48,9 +48,17 @@
 
       <p>then it spawns an isolated Claude Code session to implement the plan. Claude Code writes the code, creates a feature branch, runs the tests, and opens a PR into staging. the agent notifies Ethan on Telegram when the PR is ready for review.</p>
 
-      <h3>ralph loops</h3>
+      <h3>planning is everything</h3>
 
-      <p>the implementation step uses a pattern called Ralph Loops. a fresh Claude Code instance gets spun up for each task. completely clean context, no accumulated history, no confusion from previous work. the instance writes code, runs the test suite externally, and if tests pass, commits. if tests fail, it reads the failure, fixes, and tries again. fresh context per task, external verification, commit on green, repeat.</p>
+      <p>the most important part of this workflow isn't the code. it's the plan. the more detailed and specific the implementation plan, the better the output. when the AI produces bad code, it's almost always because the plan was vague. "add dark mode" produces garbage. "add a dark mode toggle to the settings page that persists to localStorage, respects system preference on first load, and applies a .dark class to the body element" produces something you can ship.</p>
+
+      <p>this is the real skill in working with AI: directing it well. when something goes wrong, the first question isn't "why is the AI bad?" it's "what did i fail to specify?" the agent asks clarifying questions for exactly this reason, to fill the gaps in vague instructions before writing a single line of code.</p>
+
+      <p>the agent also maintains a <code>CLAUDE.md</code> memory file that it updates after every task. what went well, what failed, patterns to avoid, codebase-specific quirks. this is <a href="https://every.to/guides/compound-engineering" target="_blank">compound engineering</a>, each unit of work makes the next one better. the agent gets sharper over time because it's literally writing down what it learned. Every.to's engineering team uses the same pattern at scale, calling it "agent-native" development where AI agents have the same tools and context as human engineers.</p>
+
+      <h3><a href="house-agents.html">ralph loops</a></h3>
+
+      <p>the implementation step uses a pattern called <a href="house-agents.html">Ralph Loops</a>. a fresh Claude Code instance gets spun up for each task. completely clean context, no accumulated history, no confusion from previous work. the instance writes code, runs the test suite externally, and if tests pass, commits. if tests fail, it reads the failure, fixes, and tries again. fresh context per task, external verification, commit on green, repeat.</p>
 
       <p>this solves context rot. when a single AI session works on a codebase for hours, it starts hallucinating about code it saw 40 minutes ago. functions that were refactored, variables that were renamed, imports that moved. the context window becomes a liability. Ralph Loops sidestep this entirely. every iteration starts clean. the tests are the source of truth, not the AI's memory.</p>
 
@@ -58,7 +66,7 @@
 
       <p>the engineering manager agent never reads code in its own context. ever. all code analysis gets delegated to sub-agents with throwaway context windows. the orchestrator handles intent, planning, coordination, and communication. the sub-agents handle the heavy lifting and throw their context away when done.</p>
 
-      <p>this is the same pattern as House Agents but applied to an entire development workflow. the manager is the CEO, the sub-agents are the engineers. the CEO doesn't read source code. the CEO reviews the plan and approves the PR.</p>
+      <p>this is the same pattern as <a href="house-agents.html">House Agents</a> but applied to an entire development workflow. the manager is the CEO, the sub-agents are the engineers. the CEO doesn't read source code. the CEO reviews the plan and approves the PR.</p>
 
       <h3>why it matters</h3>
 
