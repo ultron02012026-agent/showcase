@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ethan Houseworth — Projects</title>
-  <link rel="stylesheet" href="style.css?v=6">
+  <link rel="stylesheet" href="style.css?v=7">
 </head>
 <body>
   <header id="main-header">
@@ -18,7 +18,6 @@
   </header>
 
   <div class="hero-wrap">
-    <div class="hero-vanta" id="hero-vanta"></div>
     <div class="container">
       <section class="hero">
         <h2>every project starts with a simple thought:<br>how could AI do this?</h2>
@@ -107,31 +106,11 @@
     </div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/three@0.134.0/build/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.net.min.js"></script>
+  <!-- no external libs -->
   <!-- anime.js removed for reliability -->
 
   <script>
-    // Vanta.js hero
-    if (document.getElementById('hero-vanta')) {
-      try {
-        VANTA.NET({
-          el: '#hero-vanta',
-          mouseControls: true,
-          touchControls: true,
-          gyroControls: false,
-          minHeight: 200,
-          minWidth: 200,
-          scale: 1.0,
-          scaleMobile: 1.0,
-          color: 0x5b9bd5,
-          backgroundColor: 0xfefefe,
-          points: 8,
-          maxDistance: 20,
-          spacing: 16
-        });
-      } catch (e) {}
-    }
+    // Clean hero, no animation libs
 
     // Pill nav on scroll
     var header = document.getElementById('main-header');
