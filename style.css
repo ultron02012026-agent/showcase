@@ -707,3 +707,49 @@ footer::before {
     border-radius: 14px;
   }
 }
+
+/* ── Author Byline ── */
+.article-byline {
+  font-size: 13px;
+  color: #999;
+  margin-top: 6px;
+  margin-bottom: 8px;
+  letter-spacing: 0.02em;
+}
+
+/* ── Share Bar ── */
+.share-bar {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin: 48px 0 32px;
+  flex-wrap: wrap;
+}
+.share-bar button,
+.share-bar a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 18px;
+  border: 1.5px solid #ccc;
+  border-radius: 999px;
+  background: transparent;
+  color: #555;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition: border-color 0.2s, color 0.2s;
+  line-height: 1;
+}
+.share-bar button:hover,
+.share-bar a:hover {
+  border-color: #5b9bd5;
+  color: #5b9bd5;
+}
+.share-bar svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
