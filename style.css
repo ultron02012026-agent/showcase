@@ -47,7 +47,7 @@ header .header-inner {
   --p: 0;
   position: relative;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   max-width: calc(720px - 500px * var(--p));
   margin: 0 auto;
@@ -61,11 +61,14 @@ header .header-inner {
 }
 
 header nav {
-  position: absolute;
-  right: 28px;
   display: flex;
   gap: 28px;
   opacity: calc(1 - var(--p) * 2.5);
+  overflow: hidden;
+  max-width: calc((1 - var(--p)) * 200px);
+  transition: max-width 0s;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 header nav.nav-hidden {
