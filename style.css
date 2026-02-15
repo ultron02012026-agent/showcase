@@ -49,7 +49,8 @@ header .header-inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: calc(720px - 500px * var(--p));
+  --overscroll: 0px;
+  max-width: calc(720px - 500px * var(--p) + var(--overscroll));
   margin: 0 auto;
   padding: calc(10px - 2px * var(--p)) calc(28px - 4px * var(--p));
   border-radius: 100px;
