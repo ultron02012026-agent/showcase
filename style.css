@@ -44,43 +44,32 @@ header {
 }
 
 header .header-inner {
+  --p: 0;
+  position: relative;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  max-width: 720px;
+  max-width: calc(720px - 500px * var(--p));
   margin: 0 auto;
-  padding: 10px 28px;
+  padding: calc(10px - 2px * var(--p)) calc(28px - 4px * var(--p));
   border-radius: 100px;
   background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(0, 0, 0, 0.06);
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
-  transition: max-width 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-              padding 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-              justify-content 0.5s;
-}
-
-header.scrolled .header-inner {
-  max-width: 220px;
-  padding: 8px 24px;
-  justify-content: center;
-  transition-delay: 0.15s;
 }
 
 header nav {
+  position: absolute;
+  right: 28px;
   display: flex;
   gap: 28px;
-  transition: opacity 0.15s ease, max-width 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0.1s, gap 0.3s;
-  max-width: 300px;
-  overflow: hidden;
+  opacity: calc(1 - var(--p) * 2.5);
 }
 
-header.scrolled nav {
-  opacity: 0;
-  max-width: 0;
+header nav.nav-hidden {
   pointer-events: none;
-  gap: 0;
 }
 
 header h1 {
