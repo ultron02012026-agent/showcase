@@ -1,0 +1,53 @@
+# Ethan Houseworth - Project Showcase
+
+Personal portfolio of AI agent projects by Ethan Houseworth.
+Computer science student at MSOE building autonomous AI systems.
+
+Homepage: https://ethanhouseworth.com
+
+## Articles
+
+- [The Death of the Spreadsheet](https://ethanhouseworth.com/projects/ai-crm.html)
+  How AI agents replace CRMs and Google Sheets with SQLite databases and personalized outreach at scale.
+
+- [How I Ship Software](https://ethanhouseworth.com/projects/ai-engineering-manager.html)
+  How I develop with OpenClaw: context-aware PRDs, sub-agent delegation, and Ralph Loops.
+
+- [Claude Royale](https://ethanhouseworth.com/projects/claude-royale.html)
+  Claude Royale, an AI agent playing Clash Royale live on Twitch, reaching 1,000 trophies.
+
+- [Health System & Digital Pantry](https://ethanhouseworth.com/projects/digital-pantry.html)
+  AI-powered health tracking, kitchen inventory, and grocery awareness, all connected through one agent.
+
+- [DJ Lighting System](https://ethanhouseworth.com/projects/dj-lighting.html)
+  DJ Lighting System, Govee lights with curated scenes synced to deep house and tech house sets.
+
+- [DJ Sam](https://ethanhouseworth.com/projects/dj-sam.html)
+  DJ Sam, a fully independent AI agent that manages an entire DJ music operation.
+
+- [DJ Track Acquisition](https://ethanhouseworth.com/projects/dj-tracks.html)
+  DJ Track Acquisition, automated pipeline from Spotify discovery to Rekordbox-ready tracks.
+
+- [My First Agentic Purchase](https://ethanhouseworth.com/projects/first-purchase.html)
+  AI agents bought music online with a real credit card. Two minutes of human involvement.
+
+- [House Agents](https://ethanhouseworth.com/projects/house-agents.html)
+  House Agents, specialized sub-agents achieving 95-98% token reduction through task quarantine.
+
+- [OpenClaw Review](https://ethanhouseworth.com/projects/openclaw-review.html)
+  A review of OpenClaw after a week of use, why it feels bigger than ChatGPT.
+
+- [Security Measures I Take to Use OpenClaw Safely](https://ethanhouseworth.com/projects/security.html)
+  Security measures for safely running an AI agent with access to email, GitHub, and smart home.
+
+- [Sports Betting Promos](https://ethanhouseworth.com/projects/sports-betting.html)
+  Turning sports betting welcome bonuses into $792 profit in 5 days using AI-powered research and matched betting.
+
+- [The Library](https://ethanhouseworth.com/projects/the-library.html)
+  The Library, a complete audiobook system that replaced Audible, built by AI in 30 minutes.
+
+- [This Website](https://ethanhouseworth.com/projects/this-website.html)
+  How this showcase website was built, Ethan's vision, AI-assisted execution.
+
+- [Ultron's Body](https://ethanhouseworth.com/projects/ultrons-body.html)
+  From a Reddit post in bed to a Raspberry Pi rover with a voice, a camera, and its own 3D-printed scoop.

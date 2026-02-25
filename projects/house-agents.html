@@ -7,6 +7,24 @@
   <meta name="description" content="House Agents, specialized sub-agents achieving 95-98% token reduction through task quarantine.">
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="stylesheet" href="../style.css?v=16">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="House Agents">
+  <meta property="og:description" content="House Agents, specialized sub-agents achieving 95-98% token reduction through task quarantine.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://ethanhouseworth.com/projects/house-agents.html">
+  <meta name="twitter:card" content="summary">
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "House Agents",
+    "description": "House Agents, specialized sub-agents achieving 95-98% token reduction through task quarantine.",
+    "author": { "@type": "Person", "name": "Ethan Houseworth" },
+    "datePublished": "2025-10-01"
+  }
+  </script>
 </head>
 <body>
   <header id="main-header">
@@ -67,6 +85,7 @@
       <p>house-vision for image analysis. house-data for database operations. the pattern scales to any domain where the input is noisy and the output should be clean. which is basically everything.</p>
 
       <div class="copy-arch-wrap"><button class="copy-arch" data-arch="Build a system of specialized sub-agents that quarantine heavy, token-intensive operations from a main AI conversation. Each sub-agent runs in its own isolated context window, handles one category of work (e.g. file search, shell commands, version control, tool configuration), and returns only a condensed summary to the main agent. Sub-agents run on a cheaper/faster model since their tasks are focused. The main agent never sees raw output, only distilled results. This preserves context quality and reduces token usage by 95-99%."><svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>copy architecture</button></div>
+    <details class="arch-details"><summary>Architecture Prompt</summary><pre>Build a system of specialized sub-agents that quarantine heavy, token-intensive operations from a main AI conversation. Each sub-agent runs in its own isolated context window, handles one category of work (e.g. file search, shell commands, version control, tool configuration), and returns only a condensed summary to the main agent. Sub-agents run on a cheaper/faster model since their tasks are focused. The main agent never sees raw output, only distilled results. This preserves context quality and reduces token usage by 95-99%.</pre></details>
             <div class="share-bar">
 <button onclick="navigator.clipboard.writeText(window.location.href).then(()=>{this.innerHTML='<svg viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;><polyline points=&quot;20 6 9 17 4 12&quot;/></svg> Copied!';setTimeout(()=>{this.innerHTML='<svg viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;><rect x=&quot;9&quot; y=&quot;9&quot; width=&quot;13&quot; height=&quot;13&quot; rx=&quot;2&quot; ry=&quot;2&quot;/><path d=&quot;M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1&quot;/></svg> Copy Link'},2000)})"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy Link</button>
 <a href="#" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank','width=550,height=420');return false"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> Share</a>
