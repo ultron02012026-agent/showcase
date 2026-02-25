@@ -726,9 +726,10 @@ footer::before {
 }
 .share-bar-top button,
 .share-bar-top a {
-  padding: 4px 10px !important;
-  font-size: 11px !important;
+  padding: 6px !important;
+  font-size: 0 !important;
   border-width: 1px !important;
+  line-height: 0;
 }
 .share-bar button,
 .share-bar a {
