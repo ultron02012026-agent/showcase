@@ -722,6 +722,7 @@ footer::before {
 .share-bar-top {
   gap: 6px;
   margin: 4px 0 0;
+  justify-content: flex-start;
 }
 .share-bar-top button,
 .share-bar-top a {
