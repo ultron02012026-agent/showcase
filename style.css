@@ -93,6 +93,14 @@ header h1 span {
 header nav a { color: var(--text-dim); font-size: 14px; font-weight: 500; }
 header nav a:hover { color: var(--text-secondary); }
 
+/* ── Article page header: centered name, no nav links ── */
+body:has(.article) header nav {
+  display: none;
+}
+body:has(.article) header .header-inner {
+  justify-content: center;
+}
+
 /* ── Hero section with Vanta background ── */
 .hero-wrap {
   position: relative;
