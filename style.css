@@ -93,12 +93,13 @@ header h1 span {
 header nav a { color: var(--text-dim); font-size: 14px; font-weight: 500; }
 header nav a:hover { color: var(--text-secondary); }
 
-/* ── Article page header: centered name, no nav links ── */
+/* ── Article page header: hide nav links, pill wraps text ── */
 body:has(.article) header nav {
   display: none;
 }
 body:has(.article) header .header-inner {
   justify-content: center;
+  max-width: fit-content;
 }
 
 /* ── Hero section with Vanta background ── */
