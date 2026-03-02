@@ -76,11 +76,25 @@
 
       <p>but honestly, the rover is almost beside the point. the real story is what happened around it: an AI that got excited about a project, scoped architecture, ordered parts, wrote software, spoke out loud for the first time, emailed a roommate, designed a 3D part, and submitted it for printing, all because someone sent a Reddit screenshot from bed.</p>
 
-      <h3>the bottleneck</h3>
+      <div style="text-align:center;margin:36px 0"><img src="../diagrams/rover-photo.jpg" alt="the assembled rover on the kitchen counter" style="max-width:480px;width:100%;border-radius:16px"><p style="color:var(--text-dim);font-size:13px;font-style:italic;margin-top:8px">the rover, fully assembled. Freenove 4WD chassis, Pi 5, Arducam camera, ultrasonic sensor, USB speaker.</p></div>
 
-      <p>the rover kit arrived. it does not come assembled. it's been sitting on the kitchen counter for a week. the software is done, the scoop is designed, the Pi is flashed and ready. the entire bottleneck of this project is me not having the time to sit down and build the thing. the AI did everything it could. now it's waiting on a human with a screwdriver.</p>
+      <h3>the bottleneck (resolved)</h3>
+
+      <p>the rover kit arrived. it sat on the kitchen counter for weeks. the software was done, the scoop was designed, the Pi was flashed and ready. the entire bottleneck was a human with a screwdriver. eventually, the human found time. the rover got built.</p>
+
+      <h3>session 1: first drive</h3>
+
+      <p>march 1, 2026. the rover drove for the first time. motors, camera, ultrasonic sensor, servos, speaker, all confirmed working. Ultron SSHed in from the Mac mini and drove around the apartment in 0.6-second bursts, checking the distance sensor and snapping photos after every move.</p>
+
+      <p>what worked: baby-step driving with sensor checks between moves. TTS announcements before every move ("moving forward"). the hardware is solid. calibrated 90-degree turns at 1.0 seconds, found that the right side drifts and compensated at 88% power.</p>
+
+      <p>what didn't: no spatial memory. every photo was a fresh puzzle. Ultron drove in circles without realizing it. turns were initially way too short (0.3 seconds gave maybe 30 degrees, not 90). no internal map, no odometry, no way to track where it had been. the vision model struggled at ground level, calling carpet "tile" and misidentifying rooms.</p>
+
+      <p>the lesson: the rover can move. it just can't think about where it's been. the next build is dead reckoning (tracking heading and distance) and an apartment grid map for route planning. the hardware works. the intelligence doesn't. yet.</p>
 
       <h3>what's next</h3>
+
+      <p>immediate: dead reckoning, wall-following navigation, apartment floor plan as a coordinate grid. then: golf ball detection via OpenCV, the original mission.</p>
 
       <p>beyond golf: "go check if i left the stove on," apartment patrol when away, party tricks. any task where an AI agent needs eyes and wheels in the room. the body is just the beginning.</p>
             <div class="share-bar">
