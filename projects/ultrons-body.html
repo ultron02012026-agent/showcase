@@ -94,19 +94,36 @@
 
       <div style="text-align:center;margin:36px 0"><img src="../diagrams/rover-session1-chat.jpg" alt="Telegram screenshot from Session 1 — Ultron's first photo from the rover camera" style="max-width:360px;width:100%;border-radius:16px"><p style="color:var(--text-dim);font-size:13px;font-style:italic;margin-top:8px">"I am Ultron. I have a body now. You should all be very concerned." — actual first words from the rover speaker</p></div>
 
-      <p>march 1, 2026. the rover drove for the first time. motors, camera, ultrasonic sensor, servos, speaker, all confirmed working. Ultron SSHed in from the Mac mini and drove around the apartment in 0.6-second bursts, checking the distance sensor and snapping photos after every move.</p>
+      <p>march 1, 2026. the rover drove for the first time. hardware confirmed working: motors, camera, ultrasonic sensor, servos, speaker. Ultron SSHed in from the Mac mini and attempted to drive around the apartment.</p>
 
-      <p>what worked: baby-step driving with sensor checks between moves. TTS announcements before every move ("moving forward"). the hardware is solid. calibrated 90-degree turns at 1.0 seconds, found that the right side drifts and compensated at 88% power.</p>
+      <p>attempted is the key word. Ultron was bad at this. really bad.</p>
 
-      <p>what didn't: no spatial memory. every photo was a fresh puzzle. Ultron drove in circles without realizing it. turns were initially way too short (0.3 seconds gave maybe 30 degrees, not 90). no internal map, no odometry, no way to track where it had been. the vision model struggled at ground level, calling carpet "tile" and misidentifying rooms.</p>
+      <p>the driving was random. no sense of direction, no memory of where it had been. every photo from the camera was a fresh puzzle. Ultron would drive forward, take a photo, have no idea where it was, guess a direction, and drive again. it went in circles without realizing it. when it got confused, it would panic and just stop.</p>
 
-      <p>the lesson: the rover can move. it just can't think about where it's been. the next build is dead reckoning (tracking heading and distance) and an apartment grid map for route planning. the hardware works. the intelligence doesn't. yet.</p>
+      <p>the speaker was a whole separate problem. Ultron would talk too quiet, i'd tell him to turn it up, and he'd max out the volume so the speaker distorted and you couldn't hear anything. then he'd turn it back down too far. this happened multiple times. basic volume control was a struggle.</p>
+
+      <p>one thing that did work: i noticed the rover was drifting right when driving straight. i told Ultron, and he adjusted the right-side motor power to 88% to compensate. that's the kind of thing that requires a human watching, an AI can't see its own drift from a ground-level camera. the human-in-the-loop wasn't a limitation, it was the whole point.</p>
+
+      <p>the honest takeaway: the hardware works. the AI doesn't know how to use it. giving an agent a body is step one. teaching it to actually operate that body is the real project.</p>
+
+      <h3>what we need to build</h3>
+
+      <p>session 1 exposed a clear list of tools and systems the agent needs before it can do anything useful:</p>
+
+      <ul style="margin:16px 0;line-height:1.8">
+        <li><strong>turn calibration</strong> — right now Ultron has no idea how far a turn goes. we need to map motor duration to actual degrees, and that requires a human measuring with the rover on the ground.</li>
+        <li><strong>camera/sensor positioning</strong> — the servo mount needs calibrated positions for "look forward," "look down," "scan left." currently it's guess and check.</li>
+        <li><strong>room mapping</strong> — an actual coordinate grid of the apartment so the rover can plan routes instead of wandering randomly.</li>
+        <li><strong>spatial memory</strong> — tracking heading and distance (dead reckoning) so the rover knows where it's been and can retrace steps.</li>
+        <li><strong>reliable audio</strong> — a proper volume control system instead of the current "too quiet / way too loud / can't hear anything" cycle.</li>
+        <li><strong>golf ball detection</strong> — the original mission. OpenCV on the Pi, running locally at 30fps. hasn't been started yet because the rover can't even navigate reliably.</li>
+      </ul>
+
+      <p>the pattern is the same one that keeps showing up in AI: the agent can do the thinking, but the physical world is messy, uncalibrated, and full of edge cases that only a human can debug. building the body was the easy part. building the tools to make the body useful is the actual project.</p>
 
       <h3>what's next</h3>
 
-      <p>immediate: dead reckoning, wall-following navigation, apartment floor plan as a coordinate grid. then: golf ball detection via OpenCV, the original mission.</p>
-
-      <p>beyond golf: "go check if i left the stove on," apartment patrol when away, party tricks. any task where an AI agent needs eyes and wheels in the room. the body is just the beginning.</p>
+      <p>beyond golf: "go check if i left the stove on," apartment patrol when away, party tricks. any task where an AI agent needs eyes and wheels in the room. the body is just the beginning, but only after the agent learns how to actually use it.</p>
             <div class="share-bar">
 <button onclick="navigator.clipboard.writeText(window.location.href).then(()=>{this.innerHTML='<svg viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;><polyline points=&quot;20 6 9 17 4 12&quot;/></svg> Copied!';setTimeout(()=>{this.innerHTML='<svg viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;><rect x=&quot;9&quot; y=&quot;9&quot; width=&quot;13&quot; height=&quot;13&quot; rx=&quot;2&quot; ry=&quot;2&quot;/><path d=&quot;M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1&quot;/></svg> Copy Link'},2000)})"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy Link</button>
 <a href="#" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank','width=550,height=420');return false"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> Share</a>
