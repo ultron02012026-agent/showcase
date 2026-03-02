@@ -73,11 +73,11 @@
 
     <p>then the LLM enricher runs. it takes each artist's data, their genres, their tracks i actually listen to, their tier, and generates personalized outreach messages. not mail merge. actually personalized. "hey, been listening to your track on [specific playlist] for weeks, the groove on that bassline is insane" type messages. because the AI has the context of which specific tracks are in my library.</p>
 
-    <h3>the health system: same pattern, different domain</h3>
+    <h3>the <a href="digital-pantry.html">health system</a>: same pattern, different domain</h3>
 
-    <p>i applied the exact same abstraction to my personal health data. a Garmin watch streams daily metrics into a SQLite database: steps, heart rate, sleep stages, stress, body battery, calories. a separate database tracks every grocery purchase: store, items, quantities.</p>
+    <p>i applied the exact same abstraction to my personal health. the full system is a combination of things: a Garmin watch pulls daily metrics (steps, heart rate, sleep stages, stress, body battery, calories) into a SQLite database. a digital pantry tracks what's actually in my kitchen across four zones (cupboard, fridge, freezer, room). a meals database logs what i eat. a purchases database tracks every grocery run. and a meal template system knows my go-to meals and what ingredients they need.</p>
 
-    <p>"what's my average resting heart rate this week?" the agent queries the database. "what did i buy at Trader Joe's last Tuesday?" same thing. "i burned 600 calories today, what should i make for dinner with what's in the fridge?" it cross-references the health database with the pantry inventory and suggests a meal.</p>
+    <p>all of it is just structured data that the agent queries conversationally. "what's my average resting heart rate this week?" hits the health database. "what do i need from the store?" diffs the pantry against my staples list. "i burned 600 calories today, what should i make for dinner?" cross-references the health data with what's actually in the fridge and suggests a meal from my templates. the <a href="digital-pantry.html">full writeup</a> goes deeper into how it works.</p>
 
     <p>no app. no dashboard. no subscription. just a database and a conversation.</p>
 
