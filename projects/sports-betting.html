@@ -143,6 +143,65 @@
 
       <p><strong>5. contrarian signals work.</strong> fading public betting and trusting line movement was more reliable than just following consensus. the Baird experiment validated in a different domain.</p>
 
+      <h3>the P&L curve</h3>
+
+      <svg viewBox="0 0 700 300" style="width:100%;max-width:700px;margin:2rem auto;display:block;font-family:system-ui,sans-serif" xmlns="http://www.w3.org/2000/svg">
+        <!-- background -->
+        <rect width="700" height="300" fill="#fafafa" rx="8"/>
+        <!-- grid lines -->
+        <line x1="60" y1="40" x2="680" y2="40" stroke="#eee" stroke-width="1"/>
+        <line x1="60" y1="90" x2="680" y2="90" stroke="#eee" stroke-width="1"/>
+        <line x1="60" y1="140" x2="680" y2="140" stroke="#eee" stroke-width="1"/>
+        <line x1="60" y1="190" x2="680" y2="190" stroke="#eee" stroke-width="1"/>
+        <line x1="60" y1="240" x2="680" y2="240" stroke="#eee" stroke-width="1"/>
+        <!-- zero line -->
+        <line x1="60" y1="165" x2="680" y2="165" stroke="#999" stroke-width="1" stroke-dasharray="4,4"/>
+        <!-- y-axis labels -->
+        <text x="55" y="44" text-anchor="end" font-size="11" fill="#888">+$600</text>
+        <text x="55" y="94" text-anchor="end" font-size="11" fill="#888">+$300</text>
+        <text x="55" y="169" text-anchor="end" font-size="11" fill="#888">$0</text>
+        <text x="55" y="219" text-anchor="end" font-size="11" fill="#888">-$300</text>
+        <text x="55" y="244" text-anchor="end" font-size="11" fill="#888">-$450</text>
+        <!-- x-axis labels -->
+        <text x="86" y="270" text-anchor="middle" font-size="10" fill="#888">Mar 2</text>
+        <text x="268" y="270" text-anchor="middle" font-size="10" fill="#888">Mar 12</text>
+        <text x="476" y="270" text-anchor="middle" font-size="10" fill="#888">Mar 24</text>
+        <text x="654" y="270" text-anchor="middle" font-size="10" fill="#888">Mar 30</text>
+        <!-- P&L line: data points scaled. y: 165 = $0, each $1 = 0.208px up -->
+        <!-- Mar2:-109 Mar3:-26 Mar4:+48 Mar5:-57 Mar6:-166 Mar7:-312 Mar10:-271 Mar11:-226 Mar12:+61 Mar13:+143 Mar14:+34 Mar15:-86 Mar16:-5 Mar17:-305 Mar19:-223 Mar20:-332 Mar21:-59 Mar22:-168 Mar23:-125 Mar24:-425 Mar25:-151 Mar26:-44 Mar28:+229 Mar29:+310 Mar30:+583 -->
+        <polyline fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"
+          points="86,188 112,170 138,155 164,177 190,200 216,230 242,221 268,212 294,152 320,135 346,158 372,183 398,166 424,228 450,211 476,234 502,177 528,200 554,191 580,253 606,196 620,174 640,117 648,100 654,44"/>
+        <!-- key annotations -->
+        <circle cx="216" cy="230" r="4" fill="#dc2626"/>
+        <text x="216" y="248" text-anchor="middle" font-size="10" fill="#dc2626" font-weight="600">-$312</text>
+        <circle cx="580" cy="253" r="4" fill="#dc2626"/>
+        <text x="580" y="265" text-anchor="middle" font-size="10" fill="#dc2626" font-weight="600">-$425</text>
+        <circle cx="294" cy="152" r="4" fill="#16a34a"/>
+        <text x="294" y="145" text-anchor="middle" font-size="10" fill="#16a34a" font-weight="600">first green</text>
+        <circle cx="654" cy="44" r="4" fill="#16a34a"/>
+        <text x="654" y="37" text-anchor="middle" font-size="10" fill="#16a34a" font-weight="600">+$583</text>
+      </svg>
+
+      <h3>would we do it again?</h3>
+
+      <p>yes. but version 2 would have some changes.</p>
+
+      <p><strong>1. disable high confidence picks entirely.</strong> treat "high confidence" as a red flag and auto-downgrade to medium or skip the pick.</p>
+
+      <p><strong>2. weight NBA heavier.</strong> the profit came from basketball. lean into what works.</p>
+
+      <p><strong>3. skip NHL or build a separate model.</strong> hockey needs different logic. randomness is too high. maybe just fade public betting entirely for NHL.</p>
+
+      <p><strong>4. add a kill switch for drawdowns.</strong> if down more than $300, pause for 48 hours. let the system cool off. chasing losses makes it worse.</p>
+
+      <p><strong>5. improve system reliability.</strong> 6 missed days is too many. add monitoring, alerting, and a backup cron on a different machine.</p>
+
+      <p>but honestly? for a V1 built at a bar and deployed with zero optimization, 57.3% and +$583 is pretty solid.</p>
+
+      <p>the AI learned sports betting in march 2026. it made money. and it did it autonomously while we were doing other things.</p>
+
+      <p>that's the point.</p>
+
       <h3>every single pick</h3>
 
       <p>here's the full record. 75 picks. every game, every outcome, every dollar.</p>
@@ -944,26 +1003,6 @@
           </tbody>
         </table>
       </div>
-
-      <h3>would we do it again?</h3>
-
-      <p>yes. but version 2 would have some changes.</p>
-
-      <p><strong>1. disable high confidence picks entirely.</strong> treat "high confidence" as a red flag and auto-downgrade to medium or skip the pick.</p>
-
-      <p><strong>2. weight NBA heavier.</strong> the profit came from basketball. lean into what works.</p>
-
-      <p><strong>3. skip NHL or build a separate model.</strong> hockey needs different logic. randomness is too high. maybe just fade public betting entirely for NHL.</p>
-
-      <p><strong>4. add a kill switch for drawdowns.</strong> if down more than $300, pause for 48 hours. let the system cool off. chasing losses makes it worse.</p>
-
-      <p><strong>5. improve system reliability.</strong> 6 missed days is too many. add monitoring, alerting, and a backup cron on a different machine.</p>
-
-      <p>but honestly? for a V1 built at a bar and deployed with zero optimization, 57.3% and +$583 is pretty solid.</p>
-
-      <p>the AI learned sports betting in march 2026. it made money. and it did it autonomously while we were doing other things.</p>
-
-      <p>that's the point.</p>
 
     <div class="share-bar share-bar-bottom"><button onclick="navigator.clipboard.writeText(window.location.href).then(()=>{this.innerHTML='<svg viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;><polyline points=&quot;20 6 9 17 4 12&quot;/></svg>';setTimeout(()=>{this.innerHTML='<svg viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;><rect x=&quot;9&quot; y=&quot;9&quot; width=&quot;13&quot; height=&quot;13&quot; rx=&quot;2&quot; ry=&quot;2&quot;/><path d=&quot;M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1&quot;/></svg>'},2000)})"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button><a href="#" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank','width=550,height=420');return false"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a><a href="#" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(location.href),'_blank','width=550,height=420');return false"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></div>
 
