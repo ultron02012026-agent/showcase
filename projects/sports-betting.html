@@ -184,25 +184,23 @@
         <text x="654" y="37" text-anchor="middle" font-size="10" fill="#16a34a" font-weight="600">+$583</text>
       </svg>
 
-      <h3>would we do it again?</h3>
+      <h3>what's changing for april</h3>
 
-      <p>yes. but version 2 would have some changes.</p>
+      <p>the prompt stays the same. the sport mix stays the same. NHL is 12-10, that's fine, not enough data to call it broken. we're not going NBA-heavy or dropping anything. the core system works.</p>
 
-      <p><strong>1. disable high confidence picks entirely.</strong> treat "high confidence" as a red flag and auto-downgrade to medium or skip the pick.</p>
+      <p>the one thing we are changing: high confidence picks.</p>
 
-      <p><strong>2. weight NBA heavier.</strong> the profit came from basketball. lean into what works.</p>
+      <p>the problem is subtle. if you tell the picking agent "stop making high confidence picks," it just stops labeling things high confidence. the signal disappears. it games itself. you need the agent to be honest about its confidence without knowing what happens to that honesty.</p>
 
-      <p><strong>3. skip NHL or build a separate model.</strong> hockey needs different logic. randomness is too high. maybe just fade public betting entirely for NHL.</p>
+      <p>so we're splitting it into two agents.</p>
 
-      <p><strong>4. add a kill switch for drawdowns.</strong> if down more than $300, pause for 48 hours. let the system cool off. chasing losses makes it worse.</p>
+      <p><strong>agent A</strong> runs the same prompt, same research, same process. it makes picks and assigns confidence naturally. it has no idea what happens next. as far as it knows, every pick goes straight to production.</p>
 
-      <p><strong>5. improve system reliability.</strong> 6 missed days is too many. add monitoring, alerting, and a backup cron on a different machine.</p>
+      <p><strong>agent B</strong> runs 10 minutes later. it reads agent A's picks, silently drops anything labeled high confidence, and publishes the rest. agent A never sees agent B's logic. the filtering is invisible.</p>
 
-      <p>but honestly? for a V1 built at a bar and deployed with zero optimization, 57.3% and +$583 is pretty solid.</p>
+      <p>this preserves the confidence signal as data (we can keep tracking whether high picks improve over time) while preventing it from costing us money. agent A stays honest because it doesn't know it's being filtered.</p>
 
-      <p>the AI learned sports betting in march 2026. it made money. and it did it autonomously while we were doing other things.</p>
-
-      <p>that's the point.</p>
+      <p>everything else stays the same. 3 picks per day, flat $100, same research prompt, same cron schedule. let's see what april looks like.</p>
 
       <h3>every single pick</h3>
 
