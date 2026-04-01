@@ -122,6 +122,32 @@
 
       <p>the pattern is the same one that keeps showing up in AI: the agent can do the thinking, but the physical world is messy, uncalibrated, and full of edge cases that only a human can debug. building the body was the easy part. building the tools to make the body useful is the actual project.</p>
 
+      <h3>what we built</h3>
+
+      <p>so we built them. most of them, anyway.</p>
+
+      <p>turns out when you actually identify the problems and write them down, solving them becomes straightforward. within a week we had a full suite of calibrated tools sitting in <code>~/tools/</code> on the Pi:</p>
+
+      <p><strong>drive.py</strong> — distance-based driving. <code>go 25</code>, <code>go 50</code>, <code>go 100</code> for forward movement in centimeters. <code>goback</code> for reverse. <code>left</code> and <code>right</code> with duration for turns. 1.2 seconds = 90° turn at speed 1250. max 100cm per move. calibrated motor speeds: left=950, right=1200 to compensate for that right drift we found in session 1.</p>
+
+      <p><strong>servo.py</strong> — calibrated camera positioning. pan 75° = dead center (1490 pulse), tilt 17° = forward-facing level (800 pulse). commands: <code>center</code>, <code>pan</code>, <code>tilt</code>, <code>look</code>. one rule: never move servos while driving. set once at startup, leave them alone.</p>
+
+      <p><strong>camera.py</strong> — photo capture from the Arducam. 640×480. used after every single action to verify position. the pattern became: photo → action → photo → action → photo. never drive blind.</p>
+
+      <p><strong>volume.py</strong> — proper volume control. get/set percentage. sweet spot: 95% (PCM 140). audio normalized through ffmpeg at 0.6 volume to prevent clipping. no more "way too loud / can't hear anything" cycles.</p>
+
+      <p>but the real breakthrough was the voice assistant.</p>
+
+      <p>sitting in <code>~/ultron-voice/</code> on the Pi, running as a systemd service: an always-listening voice assistant. say "Hey Jarvis" → chime → speak your command → faster-whisper transcription → sends to OpenClaw on the Mac mini → Piper TTS response through the speaker. runs as <code>ultron-voice.service</code>, auto-restarts if it crashes. 30-second conversation mode after wake word, no need to say "Hey Jarvis" for follow-ups. wake words: "jarvis", "ultron", "ultra", "altron" and variants. voice: Piper en_US-ryan-medium (male).</p>
+
+      <p>the architecture is split across machines. <code>ultron_client.py</code> on the Mac mini handles the socket connection to the Pi, sensor data streaming, collision detection. <code>rover_api.py</code> is the high-level API — simple functions Ultron calls from OpenClaw to control the body. <code>voice_api.py</code> is a Flask server on the Mac mini that receives audio from the Pi mic, transcribes with Whisper, sends back response + commands. the Pi is ears and mouth. the Mac mini is the brain. <code>voice_listener.py</code> runs Porcupine wake word engine on the Pi — zero API calls for wake word detection, all on-device.</p>
+
+      <p>we also mapped the entire apartment. full layout with landmarks: kitchen island, mini fridge, DJ speaker, couch, desk, TV, scooter in the hallway. floor transitions documented (carpet vs tile). hazards identified: scooter charger cables, desk cables, bar stool legs. calibration data: 90° turn = 1.2s at speed 1250 on carpet, ~28cm per second at drive speed. turns are inconsistent across surfaces — always verify with a photo.</p>
+
+      <p>so what didn't get built? dead reckoning. spatial memory. heading tracking. the rover still doesn't know where it's been or which direction it's facing. and the original mission — golf ball detection with OpenCV — hasn't started. the tools are there, the body works, but the actual autonomous navigation is still a human-in-the-loop process.</p>
+
+      <p>the difference is now we have the building blocks. session 1 was "the rover can't do anything useful." now it's "the rover can see, speak, listen, move precisely, and maintain calibrated state." the gap between here and full autonomy is smaller than the gap we already closed.</p>
+
             <div class="share-bar">
 <button onclick="navigator.clipboard.writeText(window.location.href).then(()=>{this.innerHTML='<svg viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;><polyline points=&quot;20 6 9 17 4 12&quot;/></svg> Copied!';setTimeout(()=>{this.innerHTML='<svg viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;><rect x=&quot;9&quot; y=&quot;9&quot; width=&quot;13&quot; height=&quot;13&quot; rx=&quot;2&quot; ry=&quot;2&quot;/><path d=&quot;M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1&quot;/></svg> Copy Link'},2000)})"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy Link</button>
 <a href="#" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(location.href)+'&text='+encodeURIComponent(document.title),'_blank','width=550,height=420');return false"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> Share</a>
